@@ -177,8 +177,21 @@
   <data name="jsonColorData" xml:space="preserve">
     <value>{
 \"FF0000\":\"Red\",
-\"00FF00\":\"Green\",
+\"00FF00\":\"Lime\",
 \"0000FF\":\"Blue\",
+\"00FFFF\":\"Aqua\",
+\"000000\":\"Black\",
+\"FF00FF\":\"Fuchsia\",
+\"808080\":\"Gray\",
+\"008000\":\"Green\",
+\"800000\":\"Maroon\",
+\"000080\":\"Navy\",
+\"808000\":\"Olive\",
+\"800080\":\"Purple\",
+\"с0с0с0\":\"Silver\",
+\"008080\":\"Teal\",
+\"FFFFFF\":\"White\",
+\"FFFF00\":\"Yellow\",
 }</value>
   </data>
   <data name="JsonColorFile" xml:space="preserve">
