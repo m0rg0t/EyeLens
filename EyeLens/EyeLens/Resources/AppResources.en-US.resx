@@ -117,6 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>en-US</value>
+    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>MY APPLICATION</value>
+  </data>
+  <data name="AppBarButtonText" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="AppBarMenuItemText" xml:space="preserve">
+    <value>Menu Item</value>
+  </data>
   <data name="AboutPageButtonText" xml:space="preserve">
     <value>about</value>
   </data>
@@ -135,15 +152,6 @@
   <data name="AboutPage_VersionRun_Text" xml:space="preserve">
     <value>EyeLens {0}</value>
   </data>
-  <data name="AppBarButtonText" xml:space="preserve">
-    <value>add</value>
-  </data>
-  <data name="AppBarMenuItemText" xml:space="preserve">
-    <value>Menu Item</value>
-  </data>
-  <data name="ApplicationTitle" xml:space="preserve">
-    <value>EyeLens</value>
-  </data>
   <data name="ApplicationTitle1" xml:space="preserve">
     <value>EyeLens</value>
   </data>
@@ -160,7 +168,7 @@
     <value>Inverse Weighted Grayscale</value>
   </data>
   <data name="Filter_Grayscale" xml:space="preserve">
-    <value>Черно-белый</value>
+    <value>Grayscale</value>
   </data>
   <data name="Filter_MagicPen" xml:space="preserve">
     <value>Magic Pen</value>
@@ -181,17 +189,9 @@
     <value>Starting camera...</value>
   </data>
   <data name="NextEffectButtonText" xml:space="preserve">
-    <value>Следующий фильтр</value>
+    <value>Next filter</value>
   </data>
   <data name="PreviousEffectButtonText" xml:space="preserve">
-    <value>Предыдущий фильтр</value>
-  </data>
-  <data name="ResourceFlowDirection" xml:space="preserve">
-    <value>LeftToRight</value>
-    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
-  </data>
-  <data name="ResourceLanguage" xml:space="preserve">
-    <value>ru-RU</value>
-    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+    <value>Previous filter</value>
   </data>
 </root>
