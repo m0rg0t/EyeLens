@@ -15,6 +15,9 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Phone.Media.Capture;
 using Windows.Storage.Streams;
+using EyeLens.ViewModel;
+using System.Linq;
+using EyeLens.Model;
 
 namespace EyeLens
 {
@@ -105,7 +108,7 @@ namespace EyeLens
 
                 _effectIndex++;
 
-                if (_effectIndex >= _effectCount)
+                if (_effectIndex >= ViewModelLocator.MainStatic.FiltersList.Count)
                 {
                     _effectIndex = 0;
                 }
@@ -126,7 +129,7 @@ namespace EyeLens
 
                 if (_effectIndex < 0)
                 {
-                    _effectIndex = _effectCount - 1;
+                    _effectIndex = ViewModelLocator.MainStatic.FiltersList.Count;
                 }
 
                 Initialize();
@@ -159,11 +162,23 @@ namespace EyeLens
         private void Initialize()
         {
             var filters = new List<IFilter>();
-            var nameFormat = "{0}/" + _effectCount + " - {1}";
+            var nameFormat = "{0}/" + ViewModelLocator.MainStatic.FiltersList.Count + " - {1}";
 
             _cameraPreviewImageSource = new CameraPreviewImageSource(_photoCaptureDevice);
 
-            switch (_effectIndex)
+            FilterItem filterItem = ViewModelLocator.MainStatic.FiltersList.FirstOrDefault();
+            if (ViewModelLocator.MainStatic.FiltersList.FirstOrDefault(c => c.Id == (_effectIndex + 1)) == null)
+            {
+                filterItem = ViewModelLocator.MainStatic.FiltersList.FirstOrDefault();
+            }
+            else
+            {
+                filterItem = ViewModelLocator.MainStatic.FiltersList.FirstOrDefault(c => c.Id == (_effectIndex + 1));
+            };
+            ShortFilterName = filterItem.FilterTitle;
+            EffectName = String.Format(nameFormat, filterItem.Id, filterItem.FilterTitle);
+            filters.Add(filterItem.CurrentFilter);
+            /*switch (_effectIndex)
             {
                 case 0:
                     {
@@ -232,7 +247,7 @@ namespace EyeLens
                         _customEffect = new CustomEffect(_cameraPreviewImageSource);
                     }
                     break;
-            }
+            }*/
 
             if (filters.Count > 0)
             {

@@ -82,7 +82,7 @@ namespace EyeLens.ViewModel
             FiltersList.Add(new FilterItem()
             {
                 Id = 5,
-                FilterTitle = AppResources.Filter_Grayscale,
+                FilterTitle = AppResources.Filter_Cartoon,
                 CurrentFilter = new CartoonFilter(false)
             });
 
@@ -107,7 +107,7 @@ namespace EyeLens.ViewModel
 
         }
 
-        private ObservableCollection<FilterItem> _filtersList  =new ObservableCollection<FilterItem>();
+        private ObservableCollection<FilterItem> _filtersList = new ObservableCollection<FilterItem>();
         /// <summary>
         /// 
         /// </summary>

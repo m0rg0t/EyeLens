@@ -184,7 +184,7 @@ namespace EyeLens
 
             StatusTextBlock.Text = _cameraEffect.EffectName;
 
-            await ViewModelLocator.MainStatic.SayText(AppResources.NextEffectButtonText + _cameraEffect.ShortFilterName);
+            await ViewModelLocator.MainStatic.SayText(AppResources.Filter + _cameraEffect.ShortFilterName);
         }
 
         /// <summary>
@@ -197,8 +197,7 @@ namespace EyeLens
             _cameraEffect.PreviousEffect();
 
             StatusTextBlock.Text = _cameraEffect.EffectName;
-
-            await ViewModelLocator.MainStatic.SayText(AppResources.PreviousEffectButtonText + _cameraEffect.ShortFilterName);
+            await ViewModelLocator.MainStatic.SayText(AppResources.Filter + _cameraEffect.ShortFilterName);
         }
 
         private void CameraStreamSource_FPSChanged(object sender, int e)

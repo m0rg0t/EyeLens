@@ -151,6 +151,15 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Фильтр.
+        /// </summary>
+        public static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to винтажный.
         /// </summary>
         public static string Filter_Antique {
