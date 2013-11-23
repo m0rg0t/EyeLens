@@ -1,4 +1,6 @@
+using EyeLens.Model;
 using GalaSoft.MvvmLight;
+using System.Collections.ObjectModel;
 
 namespace EyeLens.ViewModel
 {
@@ -29,6 +31,30 @@ namespace EyeLens.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+            InitFiltersList();
         }
+
+        /// <summary>
+        /// Init filterslist and add filters in it
+        /// </summary>
+        private void InitFiltersList()
+        {
+            FiltersList = new ObservableCollection<FilterItem>();
+            FiltersList.Add(new FilterItem() { Id=1, FilterTitle=""});
+        }
+
+        private ObservableCollection<FilterItem> _filtersList  =new ObservableCollection<FilterItem>();
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObservableCollection<FilterItem> FiltersList
+        {
+            get { return _filtersList; }
+            set { 
+                _filtersList = value;
+                RaisePropertyChanged("FiltersList");
+            }
+        }
+        
     }
 }
