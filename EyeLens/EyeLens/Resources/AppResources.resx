@@ -222,4 +222,10 @@
     <value>en-US</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SpeechInterfaceCheckbox" xml:space="preserve">
+    <value>Speak actions in app</value>
+  </data>
 </root>
