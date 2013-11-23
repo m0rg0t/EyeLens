@@ -69,6 +69,7 @@ namespace EyeLens
 
         void zoomOutButton_Click(object sender, EventArgs e)
         {
+            ViewModelLocator.MainStatic.SayText(AppResources.ZoomingOut);
             ViewModelLocator.MainStatic.ZoomLevel--;
             this.viewCompositeTransform.ScaleX = ViewModelLocator.MainStatic.ZoomLevel;
             this.viewCompositeTransform.ScaleY = ViewModelLocator.MainStatic.ZoomLevel;
@@ -76,6 +77,7 @@ namespace EyeLens
 
         private void zoomInButton_Click(object sender, EventArgs e)
         {
+            ViewModelLocator.MainStatic.SayText(AppResources.ZoomingIn);
             ViewModelLocator.MainStatic.ZoomLevel++;
             this.viewCompositeTransform.ScaleX = ViewModelLocator.MainStatic.ZoomLevel;
             this.viewCompositeTransform.ScaleY = ViewModelLocator.MainStatic.ZoomLevel;
@@ -182,9 +184,6 @@ namespace EyeLens
 
             StatusTextBlock.Text = _cameraEffect.EffectName;
 
-            //SpeechSynthesizer synth = new SpeechSynthesizer();
-            //synth.CancelAll();
-            //await synth.SpeakTextAsync(AppResources.NextEffectButtonText + _cameraEffect.ShortFilterName);
             await ViewModelLocator.MainStatic.SayText(AppResources.NextEffectButtonText + _cameraEffect.ShortFilterName);
         }
 
@@ -198,9 +197,7 @@ namespace EyeLens
             _cameraEffect.PreviousEffect();
 
             StatusTextBlock.Text = _cameraEffect.EffectName;
-            //SpeechSynthesizer synth = new SpeechSynthesizer();
-            //synth.CancelAll();
-            //await synth.SpeakTextAsync(AppResources.PreviousEffectButtonText + _cameraEffect.ShortFilterName);
+
             await ViewModelLocator.MainStatic.SayText(AppResources.PreviousEffectButtonText + _cameraEffect.ShortFilterName);
         }
 
@@ -216,6 +213,7 @@ namespace EyeLens
         /// <param name="e"></param>
         private async void LayoutRoot_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
+            ViewModelLocator.MainStatic.SayText(AppResources.MakingFocus);
             if (_cameraSemaphore.WaitOne(100))
             {
                 await _photoCaptureDevice.FocusAsync();

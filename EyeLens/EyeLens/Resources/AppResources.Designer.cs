@@ -151,7 +151,7 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Antique.
+        ///   Looks up a localized string similar to винтажный.
         /// </summary>
         public static string Filter_Antique {
             get {
@@ -160,7 +160,7 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Auto Enhance.
+        ///   Looks up a localized string similar to автонастройка.
         /// </summary>
         public static string Filter_AutoEnhance {
             get {
@@ -169,7 +169,7 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cartoon.
+        ///   Looks up a localized string similar to анимационный.
         /// </summary>
         public static string Filter_Cartoon {
             get {
@@ -178,7 +178,7 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inverse Weighted Grayscale.
+        ///   Looks up a localized string similar to Инвертированный черно-белый.
         /// </summary>
         public static string Filter_Custom {
             get {
@@ -196,7 +196,7 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Magic Pen.
+        ///   Looks up a localized string similar to волшебное перо.
         /// </summary>
         public static string Filter_MagicPen {
             get {
@@ -205,7 +205,7 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to None.
+        ///   Looks up a localized string similar to не указан.
         /// </summary>
         public static string Filter_None {
             get {
@@ -214,7 +214,7 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sharpness.
+        ///   Looks up a localized string similar to резкость.
         /// </summary>
         public static string Filter_Sharpness {
             get {
@@ -223,7 +223,7 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stamp.
+        ///   Looks up a localized string similar to Оттиск.
         /// </summary>
         public static string Filter_Stamp {
             get {
@@ -241,11 +241,20 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Starting camera....
+        ///   Looks up a localized string similar to Запускаем камеру....
         /// </summary>
         public static string MainPage_StatusTextBlock_StartingCamera {
             get {
                 return ResourceManager.GetString("MainPage_StatusTextBlock_StartingCamera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Фокусировка.
+        /// </summary>
+        public static string MakingFocus {
+            get {
+                return ResourceManager.GetString("MakingFocus", resourceCulture);
             }
         }
         
@@ -300,6 +309,24 @@ namespace EyeLens.Resources {
         public static string ZoomInButtonText {
             get {
                 return ResourceManager.GetString("ZoomInButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Приближение.
+        /// </summary>
+        public static string ZoomingIn {
+            get {
+                return ResourceManager.GetString("ZoomingIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отдаление.
+        /// </summary>
+        public static string ZoomingOut {
+            get {
+                return ResourceManager.GetString("ZoomingOut", resourceCulture);
             }
         }
         

@@ -148,37 +148,40 @@
     <value>EyeLens</value>
   </data>
   <data name="Filter_Antique" xml:space="preserve">
-    <value>Antique</value>
+    <value>винтажный</value>
   </data>
   <data name="Filter_AutoEnhance" xml:space="preserve">
-    <value>Auto Enhance</value>
+    <value>автонастройка</value>
   </data>
   <data name="Filter_Cartoon" xml:space="preserve">
-    <value>Cartoon</value>
+    <value>анимационный</value>
   </data>
   <data name="Filter_Custom" xml:space="preserve">
-    <value>Inverse Weighted Grayscale</value>
+    <value>Инвертированный черно-белый</value>
   </data>
   <data name="Filter_Grayscale" xml:space="preserve">
     <value>Черно-белый</value>
   </data>
   <data name="Filter_MagicPen" xml:space="preserve">
-    <value>Magic Pen</value>
+    <value>волшебное перо</value>
   </data>
   <data name="Filter_None" xml:space="preserve">
-    <value>None</value>
+    <value>не указан</value>
   </data>
   <data name="Filter_Sharpness" xml:space="preserve">
-    <value>Sharpness</value>
+    <value>резкость</value>
   </data>
   <data name="Filter_Stamp" xml:space="preserve">
-    <value>Stamp</value>
+    <value>Оттиск</value>
   </data>
   <data name="MainPage_FrameRateTextBlock_Format" xml:space="preserve">
     <value>{0} FPS</value>
   </data>
   <data name="MainPage_StatusTextBlock_StartingCamera" xml:space="preserve">
-    <value>Starting camera...</value>
+    <value>Запускаем камеру...</value>
+  </data>
+  <data name="MakingFocus" xml:space="preserve">
+    <value>Фокусировка</value>
   </data>
   <data name="NextEffectButtonText" xml:space="preserve">
     <value>Следующий фильтр</value>
@@ -199,6 +202,12 @@
   </data>
   <data name="ZoomInButtonText" xml:space="preserve">
     <value>Приблизить</value>
+  </data>
+  <data name="ZoomingIn" xml:space="preserve">
+    <value>Приближение</value>
+  </data>
+  <data name="ZoomingOut" xml:space="preserve">
+    <value>Отдаление</value>
   </data>
   <data name="ZoomOutButtonText" xml:space="preserve">
     <value>Отдалить</value>
