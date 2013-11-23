@@ -284,5 +284,14 @@ namespace EyeLens.Resources {
                 return ResourceManager.GetString("ResourceLanguage", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Настройки.
+        /// </summary>
+        public static string SettingsPageButtonText {
+            get {
+                return ResourceManager.GetString("SettingsPageButtonText", resourceCulture);
+            }
+        }
     }
 }

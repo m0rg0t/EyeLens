@@ -12,6 +12,7 @@ using Windows.Phone.Media.Capture;
 using System.Threading;
 using System.Windows.Media;
 using Windows.Phone.Speech.Synthesis;
+using System.Windows.Input;
 
 namespace EyeLens
 {
@@ -47,6 +48,21 @@ namespace EyeLens
             aboutMenuItem.Click += AboutMenuItem_Click;
 
             ApplicationBar.MenuItems.Add(aboutMenuItem);
+
+            var settingsMenuItem = new ApplicationBarMenuItem();
+            settingsMenuItem.Text = AppResources.SettingsPageButtonText;
+            settingsMenuItem.Click+=settingsMenuItem_Click;
+
+            ApplicationBar.MenuItems.Add(settingsMenuItem);
+        }
+
+        private void settingsMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NavigationService.Navigate(new Uri("/Pages/AboutPage.xaml", UriKind.Relative));
+            }
+            catch{ };
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -126,7 +142,7 @@ namespace EyeLens
 
         private void AboutMenuItem_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Pages/AboutPage.xaml", UriKind.Relative));
         }
 
         private async void NextButton_Click(object sender, EventArgs e)
@@ -162,6 +178,70 @@ namespace EyeLens
 
                 _cameraSemaphore.Release();
             }
+        }
+
+
+        private void LayoutRoot_ManipulationDelta(object sender, System.Windows.Input.ManipulationDeltaEventArgs e)
+        {
+        }
+
+        private void LayoutRoot_ManipulationStarted(object sender, System.Windows.Input.ManipulationStartedEventArgs e)
+        {
+        }
+
+        private void LayoutRoot_ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)
+        {
+            if (e.IsInertial)
+            {
+                this.OnFlick(sender, e);
+            }
+        }
+
+        private void OnFlick(object sender, ManipulationCompletedEventArgs e)
+        {
+            // All of the properties on FlickGestureEventArgs have been replaced by the single property
+            // FinalVelocities.LinearVelocity.  This method shows how to retrieve from FinalVelocities.LinearVelocity
+            // the properties that used to be in FlickGestureEventArgs.
+            double horizontalVelocity = e.FinalVelocities.LinearVelocity.X;
+            double verticalVelocity = e.FinalVelocities.LinearVelocity.Y;
+
+            //MessageBox.Show(string.Format("{0} Flick: Angle {1} Velocity {2},{3}",
+            //     this.GetDirection(horizontalVelocity, verticalVelocity), Math.Round(this.GetAngle(horizontalVelocity, verticalVelocity)), horizontalVelocity, verticalVelocity));
+            if (this.GetDirection(horizontalVelocity, verticalVelocity) == System.Windows.Controls.Orientation.Horizontal)
+            {
+                if (Math.Round(this.GetAngle(horizontalVelocity, verticalVelocity)) == 180)
+                {
+                    PreviousButton_Click(this, EventArgs.Empty);
+                }
+                else
+                {
+                    NextButton_Click(this, EventArgs.Empty);
+                };
+                
+            };
+        }
+
+        private Orientation GetDirection(double x, double y)
+        {
+            return Math.Abs(x) >= Math.Abs(y) ? System.Windows.Controls.Orientation.Horizontal : System.Windows.Controls.Orientation.Vertical;
+        }
+
+        private double GetAngle(double x, double y)
+        {
+            // Note that this function works in xaml coordinates, where positive y is down, and the
+            // angle is computed clockwise from the x-axis. 
+            double angle = Math.Atan2(y, x);
+
+            // Atan2() returns values between pi and -pi.  We want a value between
+            // 0 and 2 pi.  In order to compensate for this, we'll add 2 pi to the angle
+            // if it's less than 0, and then multiply by 180 / pi to get the angle
+            // in degrees rather than radians, which are the expected units in XAML.
+            if (angle < 0)
+            {
+                angle += 2 * Math.PI;
+            }
+
+            return angle * 180 / Math.PI;
         }
 
         // Sample code for building a localized ApplicationBar
