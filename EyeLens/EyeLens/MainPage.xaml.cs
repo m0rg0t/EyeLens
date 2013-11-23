@@ -99,7 +99,8 @@ namespace EyeLens
             //{
                 StatusTextBlock.Text = AppResources.MainPage_StatusTextBlock_StartingCamera;
 
-                var resolution = PhotoCaptureDevice.GetAvailablePreviewResolutions(CameraSensorLocation.Back).Last();
+                var resolutionsList = PhotoCaptureDevice.GetAvailablePreviewResolutions(CameraSensorLocation.Back);
+                var resolution = resolutionsList.Last();
 
                 _photoCaptureDevice = await PhotoCaptureDevice.OpenAsync(CameraSensorLocation.Back, resolution);
 
