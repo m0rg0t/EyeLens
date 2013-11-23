@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Phone.Media.Capture;
 using Windows.Storage.Streams;
+using Windows.Phone.Speech.Synthesis;
 
 namespace EyeLens.ViewModel
 {
@@ -117,6 +118,23 @@ namespace EyeLens.ViewModel
                 _filtersList = value;
                 RaisePropertyChanged("FiltersList");
             }
+        }
+
+        public SpeechSynthesizer synth = new SpeechSynthesizer();
+
+        public async Task<bool> SayText(string text)
+        {
+            try
+            {
+                try
+                {
+                    synth.CancelAll();
+                }
+                catch { };
+                await synth.SpeakTextAsync(text);
+            }
+            catch { };
+            return true;
         }
 
         private int _zoomLevel = 1;

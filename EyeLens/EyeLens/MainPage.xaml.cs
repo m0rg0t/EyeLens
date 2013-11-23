@@ -182,9 +182,10 @@ namespace EyeLens
 
             StatusTextBlock.Text = _cameraEffect.EffectName;
 
-            SpeechSynthesizer synth = new SpeechSynthesizer();
-            await synth.SpeakTextAsync(AppResources.NextEffectButtonText + _cameraEffect.ShortFilterName);
-
+            //SpeechSynthesizer synth = new SpeechSynthesizer();
+            //synth.CancelAll();
+            //await synth.SpeakTextAsync(AppResources.NextEffectButtonText + _cameraEffect.ShortFilterName);
+            await ViewModelLocator.MainStatic.SayText(AppResources.NextEffectButtonText + _cameraEffect.ShortFilterName);
         }
 
         /// <summary>
@@ -197,8 +198,10 @@ namespace EyeLens
             _cameraEffect.PreviousEffect();
 
             StatusTextBlock.Text = _cameraEffect.EffectName;
-            SpeechSynthesizer synth = new SpeechSynthesizer();
-            await synth.SpeakTextAsync(AppResources.PreviousEffectButtonText + _cameraEffect.ShortFilterName);
+            //SpeechSynthesizer synth = new SpeechSynthesizer();
+            //synth.CancelAll();
+            //await synth.SpeakTextAsync(AppResources.PreviousEffectButtonText + _cameraEffect.ShortFilterName);
+            await ViewModelLocator.MainStatic.SayText(AppResources.PreviousEffectButtonText + _cameraEffect.ShortFilterName);
         }
 
         private void CameraStreamSource_FPSChanged(object sender, int e)
