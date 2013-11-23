@@ -45,7 +45,7 @@ namespace EyeLens
 
             var zoomInButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomin.png", UriKind.Relative));
             zoomInButton.Text = AppResources.ZoomInButtonText;
-            //nextButton.Click += NextButton_Click;
+            zoomInButton.Click+=zoomInButton_Click;
             ApplicationBar.Buttons.Add(zoomInButton);
 
             var zoomOutButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomout.png", UriKind.Relative));
@@ -64,6 +64,12 @@ namespace EyeLens
             settingsMenuItem.Click+=settingsMenuItem_Click;
 
             ApplicationBar.MenuItems.Add(settingsMenuItem);
+        }
+
+        private void zoomInButton_Click(object sender, EventArgs e)
+        {
+            this.viewCompositeTransform.ScaleX = 2;
+            this.viewCompositeTransform.ScaleY = 2;
         }
 
         private void settingsMenuItem_Click(object sender, EventArgs e)
@@ -256,7 +262,8 @@ namespace EyeLens
                 else
                 {
                     //to-do - zoom in
-                    MessageBox.Show("zoom in");
+                    //MessageBox.Show("zoom in");
+                    zoomInButton_Click(this, EventArgs.Empty);
                 };
             };
         }

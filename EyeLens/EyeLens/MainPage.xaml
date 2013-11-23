@@ -16,7 +16,13 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Tap="LayoutRoot_Tap" ManipulationDelta="LayoutRoot_ManipulationDelta" ManipulationStarted="LayoutRoot_ManipulationStarted" ManipulationCompleted="LayoutRoot_ManipulationCompleted">
         <Grid.Background>
-            <VideoBrush x:Name="BackgroundVideoBrush"/>
+            <VideoBrush x:Name="BackgroundVideoBrush">
+                <VideoBrush.RelativeTransform>
+                    <CompositeTransform x:Name="viewCompositeTransform"
+                            CenterX=".5"
+                            CenterY=".5" />
+                </VideoBrush.RelativeTransform>
+            </VideoBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
