@@ -98,6 +98,12 @@ namespace EyeLens.ViewModel
                 FilterTitle = AppResources.Filter_AutoEnhance,
                 CurrentFilter = new AutoEnhanceFilter()
             });
+            FiltersList.Add(new FilterItem()
+            {
+                Id = 8,
+                FilterTitle = AppResources.Filter_Posterize,
+                CurrentFilter = new PosterizeFilter()
+            });
             /*FiltersList.Add(new FilterItem()
             {
                 Id = 8,

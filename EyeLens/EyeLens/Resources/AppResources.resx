@@ -171,6 +171,9 @@
   <data name="Filter_None" xml:space="preserve">
     <value>не указан</value>
   </data>
+  <data name="Filter_Posterize" xml:space="preserve">
+    <value>постеризация</value>
+  </data>
   <data name="Filter_Sharpness" xml:space="preserve">
     <value>резкость</value>
   </data>

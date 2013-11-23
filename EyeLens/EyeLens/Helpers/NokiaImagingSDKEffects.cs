@@ -27,7 +27,7 @@ namespace EyeLens
         private CameraPreviewImageSource _cameraPreviewImageSource = null;
         private FilterEffect _filterEffect = null;
         private CustomEffectBase _customEffect = null;
-        private int _effectIndex = 0;
+        private int _effectIndex = 1;
         private int _effectCount = 9;
         private Semaphore _semaphore = new Semaphore(1, 1);
 
@@ -110,7 +110,7 @@ namespace EyeLens
 
                 if (_effectIndex >= ViewModelLocator.MainStatic.FiltersList.Count)
                 {
-                    _effectIndex = 0;
+                    _effectIndex = 1;
                 }
 
                 Initialize();
@@ -127,7 +127,7 @@ namespace EyeLens
                 
                 _effectIndex--;
 
-                if (_effectIndex < 0)
+                if (_effectIndex < 1)
                 {
                     _effectIndex = ViewModelLocator.MainStatic.FiltersList.Count;
                 }
@@ -167,13 +167,13 @@ namespace EyeLens
             _cameraPreviewImageSource = new CameraPreviewImageSource(_photoCaptureDevice);
 
             FilterItem filterItem = ViewModelLocator.MainStatic.FiltersList.FirstOrDefault();
-            if (ViewModelLocator.MainStatic.FiltersList.FirstOrDefault(c => c.Id == (_effectIndex + 1)) == null)
+            if (ViewModelLocator.MainStatic.FiltersList.FirstOrDefault(c => c.Id == (_effectIndex)) == null)
             {
                 filterItem = ViewModelLocator.MainStatic.FiltersList.FirstOrDefault();
             }
             else
             {
-                filterItem = ViewModelLocator.MainStatic.FiltersList.FirstOrDefault(c => c.Id == (_effectIndex + 1));
+                filterItem = ViewModelLocator.MainStatic.FiltersList.FirstOrDefault(c => c.Id == (_effectIndex));
             };
             ShortFilterName = filterItem.FilterTitle;
             EffectName = String.Format(nameFormat, filterItem.Id, filterItem.FilterTitle);

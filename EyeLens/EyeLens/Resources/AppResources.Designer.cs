@@ -223,6 +223,15 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to постеризация.
+        /// </summary>
+        public static string Filter_Posterize {
+            get {
+                return ResourceManager.GetString("Filter_Posterize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to резкость.
         /// </summary>
         public static string Filter_Sharpness {
