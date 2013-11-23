@@ -71,16 +71,16 @@ namespace EyeLens
         {
             ViewModelLocator.MainStatic.SayText(AppResources.ZoomingOut);
             ViewModelLocator.MainStatic.ZoomLevel--;
-            this.viewCompositeTransform.ScaleX = ViewModelLocator.MainStatic.ZoomLevel;
-            this.viewCompositeTransform.ScaleY = ViewModelLocator.MainStatic.ZoomLevel;
+            //this.viewCompositeTransform.ScaleX = ViewModelLocator.MainStatic.ZoomLevel;
+            //this.viewCompositeTransform.ScaleY = ViewModelLocator.MainStatic.ZoomLevel;
         }
 
         private void zoomInButton_Click(object sender, EventArgs e)
         {
             ViewModelLocator.MainStatic.SayText(AppResources.ZoomingIn);
             ViewModelLocator.MainStatic.ZoomLevel++;
-            this.viewCompositeTransform.ScaleX = ViewModelLocator.MainStatic.ZoomLevel;
-            this.viewCompositeTransform.ScaleY = ViewModelLocator.MainStatic.ZoomLevel;
+            //this.viewCompositeTransform.ScaleX = ViewModelLocator.MainStatic.ZoomLevel;
+           // this.viewCompositeTransform.ScaleY = ViewModelLocator.MainStatic.ZoomLevel;
         }
 
         private void settingsMenuItem_Click(object sender, EventArgs e)

@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    DataContext="{Binding Main, Source={StaticResource Locator}}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -18,7 +19,10 @@
         <Grid.Background>
             <VideoBrush x:Name="BackgroundVideoBrush">
                 <VideoBrush.RelativeTransform>
-                    <CompositeTransform x:Name="viewCompositeTransform"
+                    <CompositeTransform 
+                        ScaleY="{Binding ZoomLevel}"
+                        ScaleX="{Binding ZoomLevel}"
+                        x:Name="viewCompositeTransform"
                             CenterX=".5"
                             CenterY=".5" />
                 </VideoBrush.RelativeTransform>
