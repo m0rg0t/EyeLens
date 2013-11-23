@@ -47,7 +47,6 @@ namespace EyeLens.ViewModel
             ////    // Code runs "for real"
             ////}
             InitFiltersList();
-            var str = ColorNameDictionary.GetColorName(1, 1, 1);
         }
 
         /// <summary>
