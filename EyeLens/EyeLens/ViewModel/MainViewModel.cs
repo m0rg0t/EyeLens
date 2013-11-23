@@ -1,5 +1,7 @@
 using EyeLens.Model;
+using EyeLens.Resources;
 using GalaSoft.MvvmLight;
+using Nokia.Graphics.Imaging;
 using System.Collections.ObjectModel;
 
 namespace EyeLens.ViewModel
@@ -40,7 +42,31 @@ namespace EyeLens.ViewModel
         private void InitFiltersList()
         {
             FiltersList = new ObservableCollection<FilterItem>();
-            FiltersList.Add(new FilterItem() { Id=1, FilterTitle=""});
+            FiltersList.Add(new FilterItem() { 
+                Id = 1, 
+                FilterTitle = AppResources.Filter_MagicPen,
+                CurrentFilter = new MagicPenFilter()
+              });
+
+            FiltersList.Add(new FilterItem()
+            {
+                Id = 2,
+                FilterTitle = AppResources.Filter_Grayscale,
+                CurrentFilter = new GrayscaleFilter()
+            });
+            FiltersList.Add(new FilterItem()
+            {
+                Id = 3,
+                FilterTitle = AppResources.Filter_Antique,
+                CurrentFilter = new AntiqueFilter()
+            });
+            FiltersList.Add(new FilterItem()
+            {
+                Id = 4,
+                FilterTitle = AppResources.Filter_Antique,
+                CurrentFilter = new AntiqueFilter()
+            });
+
         }
 
         private ObservableCollection<FilterItem> _filtersList  =new ObservableCollection<FilterItem>();

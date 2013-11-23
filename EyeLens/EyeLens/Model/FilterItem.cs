@@ -37,6 +37,20 @@ namespace EyeLens.Model
             }
         }
 
+        private string _filterIdName;
+        /// <summary>
+        /// 
+        /// </summary>
+        public string FilterIdName
+        {
+            get { return _filterIdName; }
+            set { 
+                _filterIdName = value;
+                RaisePropertyChanged("FilterIdName");
+            }
+        }
+        
+
         private IFilter _currentFilter;
         /// <summary>
         /// Current filter, which should be appliedto image
