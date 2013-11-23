@@ -13,6 +13,7 @@ using System.Threading;
 using System.Windows.Media;
 using Windows.Phone.Speech.Synthesis;
 using System.Windows.Input;
+using EyeLens.ViewModel;
 
 namespace EyeLens
 {
@@ -50,7 +51,7 @@ namespace EyeLens
 
             var zoomOutButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomout.png", UriKind.Relative));
             zoomOutButton.Text = AppResources.ZoomOutButtonText;
-            //nextButton.Click += NextButton_Click;
+            zoomOutButton.Click += zoomOutButton_Click;
             ApplicationBar.Buttons.Add(zoomOutButton);
 
             var aboutMenuItem = new ApplicationBarMenuItem();
@@ -66,10 +67,18 @@ namespace EyeLens
             ApplicationBar.MenuItems.Add(settingsMenuItem);
         }
 
+        void zoomOutButton_Click(object sender, EventArgs e)
+        {
+            ViewModelLocator.MainStatic.ZoomLevel--;
+            this.viewCompositeTransform.ScaleX = ViewModelLocator.MainStatic.ZoomLevel;
+            this.viewCompositeTransform.ScaleY = ViewModelLocator.MainStatic.ZoomLevel;
+        }
+
         private void zoomInButton_Click(object sender, EventArgs e)
         {
-            this.viewCompositeTransform.ScaleX = 2;
-            this.viewCompositeTransform.ScaleY = 2;
+            ViewModelLocator.MainStatic.ZoomLevel++;
+            this.viewCompositeTransform.ScaleX = ViewModelLocator.MainStatic.ZoomLevel;
+            this.viewCompositeTransform.ScaleY = ViewModelLocator.MainStatic.ZoomLevel;
         }
 
         private void settingsMenuItem_Click(object sender, EventArgs e)
@@ -256,13 +265,10 @@ namespace EyeLens
             {
                 if (Math.Round(this.GetAngle(horizontalVelocity, verticalVelocity)) == 90)
                 {
-                    //to-do - zoom out
-                    MessageBox.Show("zoom out");
+                    zoomOutButton_Click(this, EventArgs.Empty);
                 }
                 else
                 {
-                    //to-do - zoom in
-                    //MessageBox.Show("zoom in");
                     zoomInButton_Click(this, EventArgs.Empty);
                 };
             };
