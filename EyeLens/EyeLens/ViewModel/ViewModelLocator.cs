@@ -42,17 +42,55 @@ namespace EyeLens.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
-            SimpleIoc.Default.Register<MainViewModel>();
+            //SimpleIoc.Default.Register<MainViewModel>();
         }
 
+        private static MainViewModel _main;
+
+        public static void CreateMain()
+        {
+            if (_main == null)
+            {
+                _main = new MainViewModel();
+            }
+        }
+
+        public static MainViewModel MainStatic
+        {
+            get
+            {
+                if (_main == null)
+                {
+                    CreateMain();
+                }
+
+                return _main;
+            }
+        }
+
+        /// <summary>
+        /// Gets the Main property.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
         public MainViewModel Main
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return MainStatic;
             }
         }
-        
+
+        /// <summary>
+        /// Provides a deterministic way to delete the Main property.
+        /// </summary>
+        public static void ClearMain()
+        {
+            _main.Cleanup();
+            _main = null;
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
