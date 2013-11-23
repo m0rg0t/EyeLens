@@ -13,21 +13,44 @@ namespace EyeLens.Helpers
     {
         public static void InitDictionary()
         {
-
         }
+
+        public static byte[] StringToByteArray(string hex)
+        {
+            return Enumerable.Range(0, hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                             .ToArray();
+        }
+
+        /// <summary>
+        /// Get nearest name for color
+        /// </summary>
+        /// <param name="R">red component</param>
+        /// <param name="G">green component</param>
+        /// <param name="B">blue component</param>
+        /// <returns></returns>
         public static string GetColorName(byte R, byte G, byte B)
         {
+            string _outValue = "";
             try
             {
-                var data = JArray.Parse(AppResources.jsonColorData);
+                string jsonStr = AppResources.jsonColorData.Replace("\\", "");
+                var data = JObject.Parse(jsonStr);
                 foreach(var item in data)
                 {
-                    Debug.WriteLine(item.ToString());
+                    string key = item.Key.ToString();
+                    byte[] colorCode = ColorNameDictionary.StringToByteArray(key);
+                    byte Rcode = colorCode[0];
+                    byte Gcode = colorCode[1];
+                    byte Bcode = colorCode[2];
+
+                    string value = item.Value.ToString();
                 }
             }
             catch { };
 
-            return "";
+            return _outValue;
         }
     }
 }
