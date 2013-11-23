@@ -117,23 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ResourceFlowDirection" xml:space="preserve">
-    <value>LeftToRight</value>
-    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
-  </data>
-  <data name="ResourceLanguage" xml:space="preserve">
-    <value>ru-RU</value>
-    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
-  </data>
-  <data name="ApplicationTitle" xml:space="preserve">
-    <value>EyeLens</value>
-  </data>
-  <data name="AppBarButtonText" xml:space="preserve">
-    <value>add</value>
-  </data>
-  <data name="AppBarMenuItemText" xml:space="preserve">
-    <value>Menu Item</value>
-  </data>
   <data name="AboutPageButtonText" xml:space="preserve">
     <value>about</value>
   </data>
@@ -152,46 +135,97 @@
   <data name="AboutPage_VersionRun_Text" xml:space="preserve">
     <value>EyeLens {0}</value>
   </data>
+  <data name="AppBarButtonText" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="AppBarMenuItemText" xml:space="preserve">
+    <value>Menu Item</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>EyeLens</value>
+  </data>
   <data name="ApplicationTitle1" xml:space="preserve">
     <value>EyeLens</value>
   </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Фильтр</value>
+  </data>
   <data name="Filter_Antique" xml:space="preserve">
-    <value>Antique</value>
+    <value>винтажный</value>
   </data>
   <data name="Filter_AutoEnhance" xml:space="preserve">
-    <value>Auto Enhance</value>
+    <value>автонастройка</value>
   </data>
   <data name="Filter_Cartoon" xml:space="preserve">
-    <value>Cartoon</value>
+    <value>анимационный</value>
   </data>
   <data name="Filter_Custom" xml:space="preserve">
-    <value>Inverse Weighted Grayscale</value>
+    <value>Инвертированный черно-белый</value>
   </data>
   <data name="Filter_Grayscale" xml:space="preserve">
     <value>Черно-белый</value>
   </data>
   <data name="Filter_MagicPen" xml:space="preserve">
-    <value>Magic Pen</value>
+    <value>волшебное перо</value>
   </data>
   <data name="Filter_None" xml:space="preserve">
-    <value>None</value>
+    <value>не указан</value>
+  </data>
+  <data name="Filter_Posterize" xml:space="preserve">
+    <value>постеризация</value>
   </data>
   <data name="Filter_Sharpness" xml:space="preserve">
-    <value>Sharpness</value>
+    <value>резкость</value>
   </data>
   <data name="Filter_Stamp" xml:space="preserve">
-    <value>Stamp</value>
+    <value>Оттиск</value>
+  </data>
+  <data name="jsonColorData" xml:space="preserve">
+    <value>{
+\"FF0000\":\"Red\",
+\"00FF00\":\"Green\",
+\"0000FF\":\"Blue\",
+}</value>
+  </data>
+  <data name="JsonColorFile" xml:space="preserve">
+    <value>ruColorNames.json</value>
   </data>
   <data name="MainPage_FrameRateTextBlock_Format" xml:space="preserve">
     <value>{0} FPS</value>
   </data>
   <data name="MainPage_StatusTextBlock_StartingCamera" xml:space="preserve">
-    <value>Starting camera...</value>
+    <value>Запускаем камеру...</value>
+  </data>
+  <data name="MakingFocus" xml:space="preserve">
+    <value>Фокусировка</value>
   </data>
   <data name="NextEffectButtonText" xml:space="preserve">
     <value>Следующий фильтр</value>
   </data>
   <data name="PreviousEffectButtonText" xml:space="preserve">
     <value>Предыдущий фильтр</value>
+  </data>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>ru-RU</value>
+    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+  </data>
+  <data name="SettingsPageButtonText" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="ZoomInButtonText" xml:space="preserve">
+    <value>Приблизить</value>
+  </data>
+  <data name="ZoomingIn" xml:space="preserve">
+    <value>Приближение</value>
+  </data>
+  <data name="ZoomingOut" xml:space="preserve">
+    <value>Отдаление</value>
+  </data>
+  <data name="ZoomOutButtonText" xml:space="preserve">
+    <value>Отдалить</value>
   </data>
 </root>

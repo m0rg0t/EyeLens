@@ -29,65 +29,73 @@ namespace EyeLens
         {
             InitializeComponent();
 
-            ApplicationBar = new ApplicationBar();
+            try
+            {
+                ApplicationBar = new ApplicationBar();
 
-            var previousButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/previous.png", UriKind.Relative));
-            previousButton.Text = AppResources.PreviousEffectButtonText;
-            //previousButton.Text = LocalizedStrings["PreviousEffectButtonText"];
-            previousButton.Click += PreviousButton_Click;
+                var previousButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/previous.png", UriKind.Relative));
+                previousButton.Text = AppResources.PreviousEffectButtonText;
+                //previousButton.Text = LocalizedStrings["PreviousEffectButtonText"];
+                previousButton.Click += PreviousButton_Click;
 
-            ApplicationBar.Buttons.Add(previousButton);
+                ApplicationBar.Buttons.Add(previousButton);
 
-            var nextButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/next.png", UriKind.Relative));
-            nextButton.Text = AppResources.NextEffectButtonText;
-            nextButton.Click += NextButton_Click;
+                var nextButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/next.png", UriKind.Relative));
+                nextButton.Text = AppResources.NextEffectButtonText;
+                nextButton.Click += NextButton_Click;
 
-            ApplicationBar.Buttons.Add(nextButton);
+                ApplicationBar.Buttons.Add(nextButton);
 
-            var zoomInButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomin.png", UriKind.Relative));
-            zoomInButton.Text = AppResources.ZoomInButtonText;
-            zoomInButton.Click+=zoomInButton_Click;
-            ApplicationBar.Buttons.Add(zoomInButton);
+                var zoomInButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomin.png", UriKind.Relative));
+                zoomInButton.Text = AppResources.ZoomInButtonText;
+                zoomInButton.Click += zoomInButton_Click;
+                ApplicationBar.Buttons.Add(zoomInButton);
 
-            var zoomOutButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomout.png", UriKind.Relative));
-            zoomOutButton.Text = AppResources.ZoomOutButtonText;
-            zoomOutButton.Click += zoomOutButton_Click;
-            ApplicationBar.Buttons.Add(zoomOutButton);
+                var zoomOutButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomout.png", UriKind.Relative));
+                zoomOutButton.Text = AppResources.ZoomOutButtonText;
+                zoomOutButton.Click += zoomOutButton_Click;
+                ApplicationBar.Buttons.Add(zoomOutButton);
 
-            var aboutMenuItem = new ApplicationBarMenuItem();
-            aboutMenuItem.Text = AppResources.AboutPageButtonText;
-            aboutMenuItem.Click += AboutMenuItem_Click;
+                var aboutMenuItem = new ApplicationBarMenuItem();
+                aboutMenuItem.Text = AppResources.AboutPageButtonText;
+                aboutMenuItem.Click += AboutMenuItem_Click;
 
-            ApplicationBar.MenuItems.Add(aboutMenuItem);
+                ApplicationBar.MenuItems.Add(aboutMenuItem);
 
-            var settingsMenuItem = new ApplicationBarMenuItem();
-            settingsMenuItem.Text = AppResources.SettingsPageButtonText;
-            settingsMenuItem.Click+=settingsMenuItem_Click;
+                var settingsMenuItem = new ApplicationBarMenuItem();
+                settingsMenuItem.Text = AppResources.SettingsPageButtonText;
+                settingsMenuItem.Click += settingsMenuItem_Click;
 
-            ApplicationBar.MenuItems.Add(settingsMenuItem);
+                ApplicationBar.MenuItems.Add(settingsMenuItem);
+            }
+            catch { };
         }
 
         void zoomOutButton_Click(object sender, EventArgs e)
         {
-            ViewModelLocator.MainStatic.SayText(AppResources.ZoomingOut);
-            ViewModelLocator.MainStatic.ZoomLevel--;
-            //this.viewCompositeTransform.ScaleX = ViewModelLocator.MainStatic.ZoomLevel;
-            //this.viewCompositeTransform.ScaleY = ViewModelLocator.MainStatic.ZoomLevel;
+            try
+            {
+                ViewModelLocator.MainStatic.SayText(AppResources.ZoomingOut);
+                ViewModelLocator.MainStatic.ZoomLevel--;
+            }
+            catch { };
         }
 
         private void zoomInButton_Click(object sender, EventArgs e)
         {
-            ViewModelLocator.MainStatic.SayText(AppResources.ZoomingIn);
-            ViewModelLocator.MainStatic.ZoomLevel++;
-            //this.viewCompositeTransform.ScaleX = ViewModelLocator.MainStatic.ZoomLevel;
-           // this.viewCompositeTransform.ScaleY = ViewModelLocator.MainStatic.ZoomLevel;
+            try
+            {
+                ViewModelLocator.MainStatic.SayText(AppResources.ZoomingIn);
+                ViewModelLocator.MainStatic.ZoomLevel++;
+            }
+            catch { };
         }
 
         private void settingsMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                NavigationService.Navigate(new Uri("/Pages/AboutPage.xaml", UriKind.Relative));
+                NavigationService.Navigate(new Uri("/Pages/SettingsPage.xaml", UriKind.Relative));
             }
             catch{ };
         }

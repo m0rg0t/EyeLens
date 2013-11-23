@@ -15,6 +15,7 @@ using Windows.Phone.Media.Capture;
 using Windows.Storage.Streams;
 using Windows.Phone.Speech.Synthesis;
 using EyeLens.Helpers;
+using System.IO.IsolatedStorage;
 
 namespace EyeLens.ViewModel
 {
@@ -47,6 +48,18 @@ namespace EyeLens.ViewModel
             ////    // Code runs "for real"
             ////}
             InitFiltersList();
+<<<<<<< HEAD
+=======
+            var str = ColorNameDictionary.GetColorName(new RGBColor() { R = 1, G = 1, B = 1 });
+
+            try
+            {
+                InterfaceSpeech = (bool)appSettings["InterfaceSpeech"];
+            }
+            catch {
+                InterfaceSpeech = true;
+            };
+>>>>>>> 9b28c8dc941e8f09c847b2c279c04671bd28e6ef
         }
 
         /// <summary>
@@ -114,6 +127,8 @@ namespace EyeLens.ViewModel
 
         }
 
+        public IsolatedStorageSettings appSettings = IsolatedStorageSettings.ApplicationSettings;
+
         private ObservableCollection<FilterItem> _filtersList = new ObservableCollection<FilterItem>();
         /// <summary>
         /// 
@@ -129,6 +144,29 @@ namespace EyeLens.ViewModel
 
         public SpeechSynthesizer synth = new SpeechSynthesizer();
 
+        private bool _interfaceSpeech = true;
+        /// <summary>
+        /// Should we use speech in app interface or not
+        /// </summary>
+        public bool InterfaceSpeech
+        {
+            get { return _interfaceSpeech; }
+            set { 
+                _interfaceSpeech = value;
+                try
+                {
+                    appSettings["InterfaceSpeech"] = _interfaceSpeech;
+                }
+                catch { };
+                RaisePropertyChanged("InterfaceSpeech");
+            }
+        }        
+
+        /// <summary>
+        /// Synth speech and clear speech queue
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public async Task<bool> SayText(string text)
         {
             try
@@ -138,7 +176,13 @@ namespace EyeLens.ViewModel
                     synth.CancelAll();
                 }
                 catch { };
-                await synth.SpeakTextAsync(text);
+                if (InterfaceSpeech == true)
+                {
+                    await synth.SpeakTextAsync(text);
+                }
+                else
+                {
+                };
             }
             catch { };
             return true;

@@ -3,10 +3,12 @@
   <DefaultLanguage xmlns="" code="en-US" />
   <Languages xmlns="">
     <Language code="ru-RU" />
-    <Language code="ru" />
     <Language code="en" />
+    <Language code="en-GB" />
+    <Language code="en-US" />
+    <Language code="ru" />
   </Languages>
-  <App xmlns="" ProductID="{a0a565a9-de1f-4605-bfd4-d83ba39fa586}" Title="EyeLens" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="EyeLens author" Description="Sample description" Publisher="EyeLens" PublisherID="{1495ceea-7f15-4fa2-a84b-d8cc36769596}">
+  <App xmlns="" ProductID="{a0a565a9-de1f-4605-bfd4-d83ba39fa586}" Title="EyeLens" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="EyeLens author" Description="EyeLens" Publisher="EyeLens" PublisherID="{1495ceea-7f15-4fa2-a84b-d8cc36769596}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -32,16 +34,11 @@
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
           <Title>EyeLens</Title>
-          <BackContent>
-          </BackContent>
-          <BackBackgroundImageURI>
-          </BackBackgroundImageURI>
-          <BackTitle>
-          </BackTitle>
-          <DeviceLockImageURI>
-          </DeviceLockImageURI>
-          <HasLarge>
-          </HasLarge>
+          <BackContent></BackContent>
+          <BackBackgroundImageURI></BackBackgroundImageURI>
+          <BackTitle></BackTitle>
+          <DeviceLockImageURI></DeviceLockImageURI>
+          <HasLarge></HasLarge>
         </TemplateFlip>
       </PrimaryToken>
     </Tokens>
