@@ -29,14 +29,15 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="EyeLens" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Настройки" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"  Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.Settings, Source={StaticResource LocalizedStrings}}"  Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<StackPanel>
-				<CheckBox Content="Озвучивать элементы интерфейса" 
+                <CheckBox Content="{Binding Path=LocalizedResources.SpeechInterfaceCheckbox, 
+                    Source={StaticResource LocalizedStrings}}" 
 					Name="SpeechInterface" IsChecked="{Binding InterfaceSpeech, Mode=TwoWay}"
 					HorizontalAlignment="Left" 
 					VerticalAlignment="Top"/>

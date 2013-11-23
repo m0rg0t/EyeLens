@@ -319,9 +319,27 @@ namespace EyeLens.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
         public static string SettingsPageButtonText {
             get {
                 return ResourceManager.GetString("SettingsPageButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speak actions in app.
+        /// </summary>
+        public static string SpeechInterfaceCheckbox {
+            get {
+                return ResourceManager.GetString("SpeechInterfaceCheckbox", resourceCulture);
             }
         }
         

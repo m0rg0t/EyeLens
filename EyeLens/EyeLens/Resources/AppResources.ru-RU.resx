@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutPageButtonText" xml:space="preserve">
-    <value>about</value>
+    <value>О приложении</value>
   </data>
   <data name="AboutPageTitle" xml:space="preserve">
-    <value>about</value>
+    <value>О приложении</value>
   </data>
   <data name="AboutPage_AboutRun_Text" xml:space="preserve">
     <value>This is a Nokia example application demonstrating the real-time use of effects provided by the Nokia Imaging SDK. The effects are applies to the stream of images received from the camera device.</value>
@@ -134,9 +134,6 @@
   </data>
   <data name="AboutPage_VersionRun_Text" xml:space="preserve">
     <value>EyeLens {0}</value>
-  </data>
-  <data name="AppBarButtonText" xml:space="preserve">
-    <value>add</value>
   </data>
   <data name="AppBarMenuItemText" xml:space="preserve">
     <value>Menu Item</value>
@@ -213,6 +210,9 @@
     <value>ru-RU</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
   <data name="SettingsPageButtonText" xml:space="preserve">
     <value>Настройки</value>
   </data>
@@ -227,5 +227,8 @@
   </data>
   <data name="ZoomOutButtonText" xml:space="preserve">
     <value>Отдалить</value>
+  </data>
+  <data name="SpeechInterfaceCheckbox" xml:space="preserve">
+    <value>Озвучивать элементы интерфейса</value>
   </data>
 </root>
