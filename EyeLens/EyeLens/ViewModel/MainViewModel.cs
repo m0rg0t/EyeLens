@@ -4,6 +4,16 @@ using GalaSoft.MvvmLight;
 using Nokia.Graphics.Imaging;
 using System.Collections.ObjectModel;
 
+using Nokia.Graphics.Imaging;
+using EyeLens.Resources;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Windows.Foundation;
+using Windows.Phone.Media.Capture;
+using Windows.Storage.Streams;
+
 namespace EyeLens.ViewModel
 {
     /// <summary>
@@ -64,9 +74,35 @@ namespace EyeLens.ViewModel
             FiltersList.Add(new FilterItem()
             {
                 Id = 4,
-                FilterTitle = AppResources.Filter_Antique,
-                CurrentFilter = new AntiqueFilter()
+                FilterTitle = AppResources.Filter_Stamp,
+                CurrentFilter = new StampFilter(4, 0.3)
             });
+
+            FiltersList.Add(new FilterItem()
+            {
+                Id = 5,
+                FilterTitle = AppResources.Filter_Grayscale,
+                CurrentFilter = new CartoonFilter(false)
+            });
+
+            FiltersList.Add(new FilterItem()
+            {
+                Id = 6,
+                FilterTitle = AppResources.Filter_Sharpness,
+                CurrentFilter = new SharpnessFilter(7)
+            });
+            FiltersList.Add(new FilterItem()
+            {
+                Id = 7,
+                FilterTitle = AppResources.Filter_AutoEnhance,
+                CurrentFilter = new AutoEnhanceFilter()
+            });
+            /*FiltersList.Add(new FilterItem()
+            {
+                Id = 8,
+                FilterTitle = AppResources.Filter_Custom,
+                CurrentFilter = new CustomEffect(_cameraPreviewImageSource)
+            });*/
 
         }
 
