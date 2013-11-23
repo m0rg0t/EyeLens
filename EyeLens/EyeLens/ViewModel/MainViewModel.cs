@@ -14,6 +14,7 @@ using Windows.Foundation;
 using Windows.Phone.Media.Capture;
 using Windows.Storage.Streams;
 using Windows.Phone.Speech.Synthesis;
+using EyeLens.Helpers;
 
 namespace EyeLens.ViewModel
 {
@@ -46,6 +47,7 @@ namespace EyeLens.ViewModel
             ////    // Code runs "for real"
             ////}
             InitFiltersList();
+            var str = ColorNameDictionary.GetColorName(1, 1, 1);
         }
 
         /// <summary>

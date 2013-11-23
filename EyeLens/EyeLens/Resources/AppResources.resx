@@ -218,4 +218,14 @@
   <data name="ZoomOutButtonText" xml:space="preserve">
     <value>Отдалить</value>
   </data>
+  <data name="jsonColorData" xml:space="preserve">
+    <value>{
+\"FF0000\":\"Red\",
+\"00FF00\":\"Green\",
+\"0000FF\":\"Blue\",
+}</value>
+  </data>
+  <data name="JsonColorFile" xml:space="preserve">
+    <value>ruColorNames.json</value>
+  </data>
 </root>
