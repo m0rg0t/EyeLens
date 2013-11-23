@@ -293,5 +293,23 @@ namespace EyeLens.Resources {
                 return ResourceManager.GetString("SettingsPageButtonText", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Приблизить.
+        /// </summary>
+        public static string ZoomInButtonText {
+            get {
+                return ResourceManager.GetString("ZoomInButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отдалить.
+        /// </summary>
+        public static string ZoomOutButtonText {
+            get {
+                return ResourceManager.GetString("ZoomOutButtonText", resourceCulture);
+            }
+        }
     }
 }

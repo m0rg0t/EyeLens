@@ -197,4 +197,10 @@
   <data name="SettingsPageButtonText" xml:space="preserve">
     <value>Настройки</value>
   </data>
+  <data name="ZoomInButtonText" xml:space="preserve">
+    <value>Приблизить</value>
+  </data>
+  <data name="ZoomOutButtonText" xml:space="preserve">
+    <value>Отдалить</value>
+  </data>
 </root>

@@ -43,6 +43,16 @@ namespace EyeLens
 
             ApplicationBar.Buttons.Add(nextButton);
 
+            var zoomInButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomin.png", UriKind.Relative));
+            zoomInButton.Text = AppResources.ZoomInButtonText;
+            //nextButton.Click += NextButton_Click;
+            ApplicationBar.Buttons.Add(zoomInButton);
+
+            var zoomOutButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomout.png", UriKind.Relative));
+            zoomOutButton.Text = AppResources.ZoomOutButtonText;
+            //nextButton.Click += NextButton_Click;
+            ApplicationBar.Buttons.Add(zoomOutButton);
+
             var aboutMenuItem = new ApplicationBarMenuItem();
             aboutMenuItem.Text = AppResources.AboutPageButtonText;
             aboutMenuItem.Click += AboutMenuItem_Click;
