@@ -48,6 +48,7 @@ namespace EyeLens.ViewModel
             ////    // Code runs "for real"
             ////}
             InitFiltersList();
+<<<<<<< HEAD
             var str = ColorNameDictionary.GetColorName(1, 1, 1);
 
             try
@@ -57,6 +58,8 @@ namespace EyeLens.ViewModel
             catch {
                 InterfaceSpeech = true;
             };
+=======
+>>>>>>> Share RGBColor
         }
 
         /// <summary>

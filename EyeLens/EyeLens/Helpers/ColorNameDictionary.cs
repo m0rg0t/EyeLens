@@ -9,6 +9,13 @@ using System.Diagnostics;
 
 namespace EyeLens.Helpers
 {
+    public struct RGBColor
+    {
+        public byte R;
+        public byte G;
+        public byte B;
+    };
+
     public static class ColorNameDictionary
     {
         public static void InitDictionary()
@@ -22,12 +29,6 @@ namespace EyeLens.Helpers
                              .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
                              .ToArray();
         }
-        private struct RGBColor
-        {
-            public byte R;
-            public byte G;
-            public byte B;
-        };
 
         private static int GetValueDiff(RGBColor c1, RGBColor c2)
         {
@@ -41,13 +42,9 @@ namespace EyeLens.Helpers
         /// <param name="G">green component</param>
         /// <param name="B">blue component</param>
         /// <returns></returns>
-        public static string GetColorName(byte R, byte G, byte B)
+        public static string GetColorName(RGBColor grabbedColor)
         {
             string _outValue = "";
-            RGBColor grabbedColor = new RGBColor();
-            grabbedColor.R = R;
-            grabbedColor.G = G;
-            grabbedColor.B = B;
             try
             {
                 string jsonStr = AppResources.jsonColorData.Replace("\\", "");
