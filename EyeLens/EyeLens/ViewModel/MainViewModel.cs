@@ -18,6 +18,7 @@ namespace EyeLens.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private const int MaxZoomLevel = 4;
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -55,6 +56,21 @@ namespace EyeLens.ViewModel
                 RaisePropertyChanged("FiltersList");
             }
         }
-        
+
+        private int _zoomLevel = 1;
+        /// <summary>
+        /// ViewZoomLevel
+        /// </summary>
+        public int ZoomLevel
+        {
+            get { return _zoomLevel; }
+            set {
+                if ((value <= MaxZoomLevel) && (value> 0))
+                {
+                    _zoomLevel = value;
+                    RaisePropertyChanged("ZoomLevel");
+                }
+            }
+        }
     }
 }
