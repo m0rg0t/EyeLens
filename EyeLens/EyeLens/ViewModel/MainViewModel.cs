@@ -48,10 +48,6 @@ namespace EyeLens.ViewModel
             ////    // Code runs "for real"
             ////}
             InitFiltersList();
-<<<<<<< HEAD
-=======
-            var str = ColorNameDictionary.GetColorName(new RGBColor() { R = 1, G = 1, B = 1 });
-
             try
             {
                 InterfaceSpeech = (bool)appSettings["InterfaceSpeech"];
@@ -59,7 +55,6 @@ namespace EyeLens.ViewModel
             catch {
                 InterfaceSpeech = true;
             };
->>>>>>> 9b28c8dc941e8f09c847b2c279c04671bd28e6ef
         }
 
         /// <summary>
