@@ -145,6 +145,11 @@ namespace EyeLens
             NavigationService.Navigate(new Uri("/Pages/AboutPage.xaml", UriKind.Relative));
         }
 
+        /// <summary>
+        /// switch to the next filter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void NextButton_Click(object sender, EventArgs e)
         {
             _cameraEffect.NextEffect();
@@ -156,6 +161,11 @@ namespace EyeLens
 
         }
 
+        /// <summary>
+        /// switch to the previous filter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void PreviousButton_Click(object sender, EventArgs e)
         {
             _cameraEffect.PreviousEffect();
@@ -170,12 +180,16 @@ namespace EyeLens
             FrameRateTextBlock.Text = String.Format(AppResources.MainPage_FrameRateTextBlock_Format, e);
         }
 
+        /// <summary>
+        /// focus camera on tap
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void LayoutRoot_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             if (_cameraSemaphore.WaitOne(100))
             {
                 await _photoCaptureDevice.FocusAsync();
-
                 _cameraSemaphore.Release();
             }
         }
@@ -210,14 +224,29 @@ namespace EyeLens
             if (this.GetDirection(horizontalVelocity, verticalVelocity) == System.Windows.Controls.Orientation.Horizontal)
             {
                 if (Math.Round(this.GetAngle(horizontalVelocity, verticalVelocity)) == 180)
-                {
-                    PreviousButton_Click(this, EventArgs.Empty);
+                {        
+                    //next filter
+                    NextButton_Click(this, EventArgs.Empty);
                 }
                 else
                 {
-                    NextButton_Click(this, EventArgs.Empty);
+                    //previous filter
+                    PreviousButton_Click(this, EventArgs.Empty);
                 };
-                
+            };
+
+            if (this.GetDirection(horizontalVelocity, verticalVelocity) == System.Windows.Controls.Orientation.Vertical)
+            {
+                if (Math.Round(this.GetAngle(horizontalVelocity, verticalVelocity)) == 90)
+                {
+                    //to-do - zoom out
+                    MessageBox.Show("zoom out");
+                }
+                else
+                {
+                    //to-do - zoom in
+                    MessageBox.Show("zoom in");
+                };
             };
         }
 
