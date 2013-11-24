@@ -14,6 +14,7 @@ using System.Windows.Media;
 using Windows.Phone.Speech.Synthesis;
 using System.Windows.Input;
 using EyeLens.ViewModel;
+using Nokia.Graphics.Imaging;
 
 namespace EyeLens
 {
@@ -33,12 +34,10 @@ namespace EyeLens
             {
                 ApplicationBar = new ApplicationBar();
 
-                var previousButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/previous.png", UriKind.Relative));
+                /*var previousButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/previous.png", UriKind.Relative));
                 previousButton.Text = AppResources.PreviousEffectButtonText;
-                //previousButton.Text = LocalizedStrings["PreviousEffectButtonText"];
                 previousButton.Click += PreviousButton_Click;
-
-                ApplicationBar.Buttons.Add(previousButton);
+                ApplicationBar.Buttons.Add(previousButton);*/
 
                 var nextButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/next.png", UriKind.Relative));
                 nextButton.Text = AppResources.NextEffectButtonText;
@@ -56,6 +55,11 @@ namespace EyeLens
                 zoomOutButton.Click += zoomOutButton_Click;
                 ApplicationBar.Buttons.Add(zoomOutButton);
 
+                var colorPickerButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/colorPicker.png", UriKind.Relative));
+                colorPickerButton.Text = AppResources.ColorPickerButtonText;
+                colorPickerButton.Click += colorPickerButton_Click;
+                ApplicationBar.Buttons.Add(colorPickerButton);
+
                 var aboutMenuItem = new ApplicationBarMenuItem();
                 aboutMenuItem.Text = AppResources.AboutPageButtonText;
                 aboutMenuItem.Click += AboutMenuItem_Click;
@@ -69,6 +73,12 @@ namespace EyeLens
                 ApplicationBar.MenuItems.Add(settingsMenuItem);
             }
             catch { };
+        }
+
+        void colorPickerButton_Click(object sender, EventArgs e)
+        {
+            ViewModelLocator.MainStatic.GetColorUsed = true;
+            //throw new NotImplementedException();
         }
 
         void zoomOutButton_Click(object sender, EventArgs e)
@@ -124,7 +134,7 @@ namespace EyeLens
             //{
                 StatusTextBlock.Text = AppResources.MainPage_StatusTextBlock_StartingCamera;
 
-                var resolutionsList = PhotoCaptureDevice.GetAvailablePreviewResolutions(CameraSensorLocation.Back);
+                var resolutionsList = PhotoCaptureDevice.GetAvailablePreviewResolutions(CameraSensorLocation.Back).ToList();
                 var resolution = resolutionsList.Last();
 
                 _photoCaptureDevice = await PhotoCaptureDevice.OpenAsync(CameraSensorLocation.Back, resolution);
@@ -220,12 +230,27 @@ namespace EyeLens
         /// <param name="e"></param>
         private async void LayoutRoot_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            ViewModelLocator.MainStatic.SayText(AppResources.MakingFocus);
-            if (_cameraSemaphore.WaitOne(100))
+            if (ViewModelLocator.MainStatic.GetColorUsed == true)
             {
-                await _photoCaptureDevice.FocusAsync();
-                _cameraSemaphore.Release();
+                Point clickPoint = e.GetPosition(LayoutRoot);
+                int x = Convert.ToInt32(clickPoint.X);
+                int y = Convert.ToInt32(clickPoint.Y);
+                if (_cameraSemaphore.WaitOne(100))
+                {
+                    //await _photoCaptureDevice.FocusAsync();
+                    _cameraSemaphore.Release();
+                };
+                ViewModelLocator.MainStatic.GetColorUsed = false;
             }
+            else
+            {
+                ViewModelLocator.MainStatic.SayText(AppResources.MakingFocus);
+                if (_cameraSemaphore.WaitOne(100))
+                {
+                    await _photoCaptureDevice.FocusAsync();
+                    _cameraSemaphore.Release();
+                }
+            };
         }
 
 

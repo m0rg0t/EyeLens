@@ -228,4 +228,7 @@
   <data name="SpeechInterfaceCheckbox" xml:space="preserve">
     <value>Speak actions in app</value>
   </data>
+  <data name="ColorPickerButtonText" xml:space="preserve">
+    <value>color picker</value>
+  </data>
 </root>

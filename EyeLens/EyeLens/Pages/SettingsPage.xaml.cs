@@ -16,5 +16,23 @@ namespace EyeLens
         {
             InitializeComponent();
         }
+
+        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.NavigationService.GoBack();
+            }
+            catch { };
+        }
+
+        private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                this.NavigationService.GoBack();
+            }
+            catch { };
+        }
     }
 }

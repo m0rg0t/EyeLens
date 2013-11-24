@@ -244,4 +244,7 @@
   <data name="SpeechInterfaceCheckbox" xml:space="preserve">
     <value>Озвучивать элементы интерфейса</value>
   </data>
+  <data name="ColorPickerButtonText" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
 </root>

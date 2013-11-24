@@ -234,4 +234,7 @@
   <data name="ZoomOutButtonText" xml:space="preserve">
     <value>Отдалить</value>
   </data>
+  <data name="ColorPickerButtonText" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
 </root>

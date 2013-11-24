@@ -133,6 +133,15 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to color picker.
+        /// </summary>
+        public static string ColorPickerButtonText {
+            get {
+                return ResourceManager.GetString("ColorPickerButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filter.
         /// </summary>
         public static string Filter {

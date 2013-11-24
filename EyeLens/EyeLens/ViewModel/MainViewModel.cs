@@ -126,7 +126,7 @@ namespace EyeLens.ViewModel
 
         private ObservableCollection<FilterItem> _filtersList = new ObservableCollection<FilterItem>();
         /// <summary>
-        /// 
+        /// List of current filters in app
         /// </summary>
         public ObservableCollection<FilterItem> FiltersList
         {
@@ -198,5 +198,20 @@ namespace EyeLens.ViewModel
                 }
             }
         }
+
+        private bool _getColorUsed = false;
+        /// <summary>
+        /// If true, on next tap user wants to get the color
+        /// </summary>
+        public bool GetColorUsed
+        {
+            get { return _getColorUsed; }
+            set { 
+                _getColorUsed = value;
+                RaisePropertyChanged("GetColorUsed");
+            }
+        }
+        
+
     }
 }
