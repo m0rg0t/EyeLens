@@ -7,7 +7,8 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using Windows.UI;
+using System.Windows.Media;
+
 
 namespace EyeLens.Controls
 {

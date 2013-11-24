@@ -26,6 +26,8 @@ using System.Windows.Threading;
 using Windows.Foundation;
 using System.Windows.Media.Imaging;
 using EyeLens.Helpers;
+using Coding4Fun.Toolkit.Controls;
+using EyeLens.Controls;
 
 
 namespace EyeLens
@@ -51,10 +53,11 @@ namespace EyeLens
                 previousButton.Click += PreviousButton_Click;
                 ApplicationBar.Buttons.Add(previousButton);*/
 
-                /*var nextButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/next.png", UriKind.Relative));
+                var nextButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/next.png", UriKind.Relative));
                 nextButton.Text = AppResources.NextEffectButtonText;
                 nextButton.Click += NextButton_Click;
-                ApplicationBar.Buttons.Add(nextButton);*/
+
+                ApplicationBar.Buttons.Add(nextButton);
 
                 var zoomInButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomin.png", UriKind.Relative));
                 zoomInButton.Text = AppResources.ZoomInButtonText;
@@ -258,26 +261,21 @@ namespace EyeLens
                 int y = Convert.ToInt32(clickPoint.Y);
                 if (_cameraSemaphore.WaitOne(100))
                 {
-                    /*var resolutionsList = PhotoCaptureDevice.GetAvailablePreviewResolutions(CameraSensorLocation.Back).ToList();
-                    Windows.Foundation.Size _frameSize = resolutionsList.Last();
-
-                    var _frameBufferSize = (int)_frameSize.Width * (int)_frameSize.Height * 4; // RGBA
-                    var _frameBuffer = new byte[_frameBufferSize];
-                    var _frameStream = new MemoryStream(_frameBuffer);
-                    var frameBuffer = _frameBuffer.AsBuffer();
-
-                    //await _photoCaptureDevice.FocusAsync();
-                    var scanlineByteSize = (uint)_frameSize.Width * 4; // 4 bytes per pixel in BGRA888 mode
-                    var bitmap = new Bitmap(_frameSize, ColorMode.Bgra8888, scanlineByteSize, frameBuffer);*/
-
                     WriteableBitmap item = new WriteableBitmap(this.LayoutRoot, this.LayoutRoot.RenderTransform);
                     Color currentColor = item.GetPixel(x, y);
-                    //MessageBox.Show(currentColor.ToString());
-
+                    
                     string colorName = ColorNameDictionary.GetColorName(new RGBColor() { R = currentColor.R, G = currentColor.G, B = currentColor.B });
                     ViewModelLocator.MainStatic.SayText(colorName);
 
                     _cameraSemaphore.Release();
+
+                    ColorInfoControl control = new ColorInfoControl();
+                    control.CurrentColor = currentColor;
+                    MessagePrompt messagePrompt = new MessagePrompt();
+                    //messagePrompt.FontSize = 20;
+                    messagePrompt.Title = colorName;
+                    messagePrompt.Body = control;
+                    messagePrompt.Show();
                 };
                 ViewModelLocator.MainStatic.GetColorUsed = false;
             }
