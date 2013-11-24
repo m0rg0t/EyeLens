@@ -62,14 +62,14 @@ namespace EyeLens.ViewModel
         {
             FiltersList = new ObservableCollection<FilterItem>();
             FiltersList.Add(new FilterItem() { 
-                Id = 1, 
+                Id = 6, 
                 FilterTitle = AppResources.Filter_MagicPen,
                 CurrentFilter = new MagicPenFilter()
               });
 
             FiltersList.Add(new FilterItem()
             {
-                Id = 2,
+                Id = 7,
                 FilterTitle = AppResources.Filter_Grayscale,
                 CurrentFilter = new GrayscaleFilter()
             });
@@ -95,13 +95,13 @@ namespace EyeLens.ViewModel
 
             FiltersList.Add(new FilterItem()
             {
-                Id = 6,
+                Id = 1,
                 FilterTitle = AppResources.Filter_Sharpness,
                 CurrentFilter = new SharpnessFilter(7)
             });
             FiltersList.Add(new FilterItem()
             {
-                Id = 7,
+                Id = 2,
                 FilterTitle = AppResources.Filter_AutoEnhance,
                 CurrentFilter = new AutoEnhanceFilter()
             });
