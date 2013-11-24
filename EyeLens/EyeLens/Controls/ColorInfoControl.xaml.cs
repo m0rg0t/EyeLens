@@ -24,7 +24,9 @@ namespace EyeLens.Controls
         public string CurrentColorName
         {
             get { return _colorName; }
-            set { _colorName = value; }
+            set { 
+                _colorName = value;
+            }
         }
 
         private Color _currentColor;
@@ -32,7 +34,10 @@ namespace EyeLens.Controls
         public Color CurrentColor
         {
             get { return _currentColor; }
-            set { _currentColor = value; }
+            set { 
+                _currentColor = value;
+                ColorBorder.Background = new SolidColorBrush(_currentColor);
+            }
         }
         
     }

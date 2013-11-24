@@ -14,10 +14,12 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border Background="{Binding CurrentColor, ElementName=ColorInfoControl}" HorizontalAlignment="Stretch"
+        <Border  HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch" Height="150"
                 Width="Auto" Grid.ColumnSpan="2"
+                Name="ColorBorder"
                 Margin="20,10,20,0"
                 />
+        <!--Background="{Binding CurrentColor, ElementName=ColorInfoControl}"-->
     </Grid>
 </UserControl>
