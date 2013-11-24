@@ -51,13 +51,13 @@ namespace EyeLens
                 /*var previousButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/previous.png", UriKind.Relative));
                 previousButton.Text = AppResources.PreviousEffectButtonText;
                 previousButton.Click += PreviousButton_Click;
-                ApplicationBar.Buttons.Add(previousButton);*/
+                ApplicationBar.Buttons.Add(previousButton);
 
                 var nextButton = new ApplicationBarIconButton(new Uri("/Assets/Icons/next.png", UriKind.Relative));
                 nextButton.Text = AppResources.NextEffectButtonText;
                 nextButton.Click += NextButton_Click;
 
-                ApplicationBar.Buttons.Add(nextButton);
+                ApplicationBar.Buttons.Add(nextButton);*/
 
                 var zoomInButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/zoomin.png", UriKind.Relative));
                 zoomInButton.Text = AppResources.ZoomInButtonText;
