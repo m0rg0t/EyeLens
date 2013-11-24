@@ -192,6 +192,18 @@
 \"008080\":\"Teal\",
 \"FFFFFF\":\"White\",
 \"FFFF00\":\"Yellow\",
+\"400000\":\"Brown\",
+\"С00000\":\"DarkRed\",
+\"004000\":\"Dark Green\",
+\"00С000\":\"Chlorine\",
+\"000040\":\"Saphir\",
+\"0000С0\":\"Indigo\",
+\"404040\":\"Wet asphalt\",
+\"404000\":\"Dark khaki\",
+\"400040\":\"Plum\",
+\"С0С000\":\"Pear\",
+\"с000с0\":\"Violet\",
+\"00С0С0\":\"Turquoise\"
 }</value>
   </data>
   <data name="JsonColorFile" xml:space="preserve">
