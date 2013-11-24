@@ -25,6 +25,45 @@
       <Feedback> Переключить на следующий фильтр </Feedback>
       <Navigate />
     </Command>
+
+    <Command Name="PrevFilter">
+      <Example>  предыдуший фильтр </Example>
+      <ListenFor> предыдуший фильтр </ListenFor>
+      <Feedback> Переключить на предыдуший фильтр </Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="ChooseColor">
+      <Example> определение цвета </Example>
+      <ListenFor> определить цвет </ListenFor>
+      <ListenFor> определение цвета </ListenFor>
+      <Feedback> Режим определения цвета </Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="ZoomIn">
+      <Example> увеличение </Example>
+      <ListenFor> увеличение </ListenFor>
+      <ListenFor> приближение </ListenFor>
+      <Feedback> Приближаем </Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="ZoomOut">
+      <Example> уменьшение </Example>
+      <ListenFor> уменьшение </ListenFor>
+      <ListenFor> уменьшение масштаба </ListenFor>
+      <Feedback> уменьшаем </Feedback>
+      <Navigate />
+    </Command>
+    
+    <Command Name="OpenApp">
+      <Example> запустить </Example>
+      <ListenFor> запустить </ListenFor>
+      <ListenFor> открыть </ListenFor>
+      <Feedback> Открываем приложение </Feedback>
+      <Navigate />
+    </Command>
   </CommandSet>
 
   <!--<CommandSet xml:lang="ru">
