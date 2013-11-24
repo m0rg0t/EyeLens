@@ -28,6 +28,9 @@ using System.Windows.Media.Imaging;
 using EyeLens.Helpers;
 using Coding4Fun.Toolkit.Controls;
 using EyeLens.Controls;
+using Windows.Storage.Streams;
+using Microsoft.Xna.Framework.Media;
+using System.IO.IsolatedStorage;
 
 
 namespace EyeLens
@@ -74,6 +77,13 @@ namespace EyeLens
                 colorPickerButton.Click += colorPickerButton_Click;
                 ApplicationBar.Buttons.Add(colorPickerButton);
 
+                var featureButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/feature.camera.png", UriKind.Relative));
+                featureButton.Text = AppResources.ColorPickerButtonText;
+                featureButton.Click += featureButton_Click;
+                ApplicationBar.Buttons.Add(featureButton);
+
+                
+
                 var aboutMenuItem = new ApplicationBarMenuItem();
                 aboutMenuItem.Text = AppResources.AboutPageButtonText;
                 aboutMenuItem.Click += AboutMenuItem_Click;
@@ -87,6 +97,78 @@ namespace EyeLens
                 ApplicationBar.MenuItems.Add(settingsMenuItem);
             }
             catch { };
+        }
+
+        public async void featureButton_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            /*IBuffer jpegOutput = await jpegRenderer.RenderAsync();
+
+            // Save the image as a jpeg to the saved pictures album.
+            MediaLibrary library = new MediaLibrary();
+            string fileName = string.Format("CartoonImage_{0:G}", DateTime.Now);
+            var picture = library.SavePicture(fileName, jpegOutput.AsStream());*/
+
+            MediaLibrary library = new MediaLibrary();
+            string fileName = string.Format("CartoonImage_{0:G}", DateTime.Now);
+            
+
+            WriteableBitmap item = new WriteableBitmap(this.LayoutRoot, this.LayoutRoot.RenderTransform);
+            //var picture = library.SavePicture(fileName, );
+            item.SaveToMediaLibrary(fileName);
+
+           /* try
+            {
+                // Reposition ImageStream to beginning, because it has been read already in the OnNavigatedTo method.
+                //_dataContext.ImageStream.Position = 0;
+
+                MemoryStream stream = new MemoryStream();
+
+                IReadOnlyList<CameraSensorLocation> sensorLocations = PhotoCaptureDevice.AvailableSensorLocations;
+                CameraSensorLocation _sensorLocation = sensorLocations.LastOrDefault();
+                if (_sensorLocation == sensorLocations[1])
+                {
+                    _sensorLocation = sensorLocations[0];
+                }
+                else
+                {
+                    _sensorLocation = sensorLocations[1];
+                }
+
+                Windows.Foundation.Size initialResolution = new Windows.Foundation.Size(640, 480);
+
+                PhotoCaptureDevice d = await PhotoCaptureDevice.OpenAsync(_sensorLocation, initialResolution);
+
+                d.SetProperty(KnownCameraGeneralProperties.EncodeWithOrientation,
+                              d.SensorLocation == CameraSensorLocation.Back ?
+                              d.SensorRotationInDegrees : -d.SensorRotationInDegrees);
+
+                CameraCaptureSequence sequence = d.CreateCaptureSequence(1);
+                sequence.Frames[0].CaptureStream = stream.AsOutputStream();
+
+                await d.PrepareCaptureSequenceAsync(sequence);
+                await sequence.StartCaptureAsync();
+
+                var ImageStream = stream;
+
+                MediaLibrary library = new MediaLibrary();
+                library.SavePictureToCameraRoll("CameraExplorer_" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".jpg", ImageStream);
+
+                // There should be no temporary file left behind
+                using (var isolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
+                {
+                    var files = isolatedStorage.GetFileNames("CameraExplorer_*.jpg");
+                    foreach (string file in files)
+                    {
+                        isolatedStorage.DeleteFile(file);
+                        //System.Diagnostics.Debug.WriteLine("Temp file deleted: " + file);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Saving picture to camera roll failed: " + ex.HResult.ToString("x8") + " - " + ex.Message);
+            }*/
         }
 
         void colorPickerButton_Click(object sender, EventArgs e)

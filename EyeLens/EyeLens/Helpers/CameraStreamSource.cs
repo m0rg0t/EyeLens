@@ -128,23 +128,31 @@ namespace EyeLens
         /// </summary>
         protected override void GetSampleAsync(MediaStreamType mediaStreamType)
         {
-            var task = _cameraEffect.GetNewFrameAndApplyEffect(_frameBuffer.AsBuffer(), _frameSize);
-           
-            // When asynchroneous call completes, proceed by reporting about the sample completion
-
-            task.ContinueWith((action) =>
+            try
             {
-                if (_frameStream != null)
+                var task = _cameraEffect.GetNewFrameAndApplyEffect(_frameBuffer.AsBuffer(), _frameSize);
+
+                // When asynchroneous call completes, proceed by reporting about the sample completion
+
+                task.ContinueWith((action) =>
                 {
-                    _frameStream.Position = 0;
-                    _currentTime += _frameTime;
-                    _frameCount++;
+                    try
+                    {
+                        if (_frameStream != null)
+                        {
+                            _frameStream.Position = 0;
+                            _currentTime += _frameTime;
+                            _frameCount++;
 
-                    var sample = new MediaStreamSample(_videoStreamDescription, _frameStream, _frameStreamOffset, _frameBufferSize, _currentTime, _emptyAttributes);
+                            var sample = new MediaStreamSample(_videoStreamDescription, _frameStream, _frameStreamOffset, _frameBufferSize, _currentTime, _emptyAttributes);
 
-                    ReportGetSampleCompleted(sample);
-                }
-            });
+                            ReportGetSampleCompleted(sample);
+                        }
+                    }
+                    catch { };
+                });
+            }
+            catch { };
         }
 
         protected override void GetDiagnosticAsync(MediaStreamSourceDiagnosticKind diagnosticKind)

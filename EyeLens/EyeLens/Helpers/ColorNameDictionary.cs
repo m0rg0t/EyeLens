@@ -52,19 +52,23 @@ namespace EyeLens.Helpers
                 var data = JObject.Parse(jsonStr);
                 foreach(var item in data)
                 {
-                    string key = item.Key.ToString();
-                    byte[] colorCode = ColorNameDictionary.StringToByteArray(key);
-                    RGBColor c = new RGBColor();
-                    c.R = colorCode[0];
-                    c.G = colorCode[1];
-                    c.B = colorCode[2];
-
-                    int curDiff = GetValueDiff(grabbedColor, c);
-                    if (minDiff > curDiff)
+                    try
                     {
-                        minDiff = curDiff;
-                        _outValue = item.Value.ToString();
+                        string key = item.Key.ToString();
+                        byte[] colorCode = ColorNameDictionary.StringToByteArray(key);
+                        RGBColor c = new RGBColor();
+                        c.R = colorCode[0];
+                        c.G = colorCode[1];
+                        c.B = colorCode[2];
+
+                        int curDiff = GetValueDiff(grabbedColor, c);
+                        if (minDiff > curDiff)
+                        {
+                            minDiff = curDiff;
+                            _outValue = item.Value.ToString();
+                        }
                     }
+                    catch { };
                 }
             }
             catch { };
