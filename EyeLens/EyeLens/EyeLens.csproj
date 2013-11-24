@@ -90,6 +90,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controls\ColorInfoControl.xaml.cs">
+      <DependentUpon>ColorInfoControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\ColorNameDictionary.cs" />
     <Compile Include="Model\FilterItem.cs" />
     <Compile Include="Pages\AboutPage.xaml.cs">
@@ -133,6 +136,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Controls\ColorInfoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AboutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
