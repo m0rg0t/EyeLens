@@ -2,43 +2,38 @@
 
 <VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.0">
   <CommandSet xml:lang="en-US">
-    <CommandPrefix>EyeLens</CommandPrefix>
-    <Example>next filter</Example>
+    <CommandPrefix>Contoso Rodeo</CommandPrefix>
+    <Example> play a new game </Example>
 
-    <Command Name="NextFilter">
-      <Example> next filter </Example>
-      <ListenFor> [and] next [a] filter </ListenFor>
-      <ListenFor> [and] switch [a] filter </ListenFor>
-      <Feedback> Switch to next filter </Feedback>
+    <Command Name="PlayGame">
+      <Example> play a new game </Example>
+      <ListenFor> [and] play [a] new game </ListenFor>
+      <ListenFor> [and] start [a] new game </ListenFor>
+      <Feedback> Starting a new game... </Feedback>
       <Navigate />
     </Command>
+
+    <Command Name="PlayLevel">
+      <Example> replay level two </Example>
+      <ListenFor> replay level {number} </ListenFor>
+      <Feedback> Going to level {number}... </Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="PlayUnknownLevel">
+      <Example> replay level two </Example>
+      <ListenFor> [and] replay level {*} </ListenFor>
+      <Feedback> Unknown level; going to level selection... </Feedback>
+      <Navigate Target="LevelSelect.xaml" />
+    </Command>
+
+    <PhraseList Label="number">
+      <Item> one </Item>
+      <Item> two </Item>
+      <Item> three </Item>
+    </PhraseList>
+
   </CommandSet>
-
-  <CommandSet xml:lang="ru-RU">
-    <CommandPrefix>Линза</CommandPrefix>
-    <Example>следующий фильтр</Example>
-
-    <Command Name="NextFilter">
-      <Example> следующий фильтр </Example>
-      <ListenFor> следующий фильтр </ListenFor>
-      <ListenFor> переключить фильтр </ListenFor>
-      <Feedback> Переключить на следующий фильтр </Feedback>
-      <Navigate />
-    </Command>
-  </CommandSet>
-
-  <!--<CommandSet xml:lang="ru">
-    <CommandPrefix>Линза</CommandPrefix>
-    <Example>следующий фильтр</Example>
-
-    <Command Name="NextFilter">
-      <Example> следующий фильтр </Example>
-      <ListenFor> следующий фильтр </ListenFor>
-      <ListenFor> переключить фильтр </ListenFor>
-      <Feedback> Переключить на следующий фильтр </Feedback>
-      <Navigate />
-    </Command>
-  </CommandSet>-->
 </VoiceCommands>
 
 <!-- Example -->

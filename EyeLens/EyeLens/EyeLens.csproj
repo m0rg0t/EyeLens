@@ -193,7 +193,10 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
     <Content Include="VoiceCommandDefinition.xml" />
+    <Content Include="VoiceCommandDefinition1.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.en-GB.resx" />
@@ -213,6 +216,9 @@
     <EmbeddedResource Include="Resources\AppResources.ru.resx" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.7\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight.Extras.WP8">
       <HintPath>..\packages\MvvmLightLibs.4.2.30.0\lib\wp8\GalaSoft.MvvmLight.Extras.WP8.dll</HintPath>
     </Reference>

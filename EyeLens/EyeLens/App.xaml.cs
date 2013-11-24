@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using EyeLens.Resources;
+using Windows.Phone.Speech.VoiceCommands;
 
 namespace EyeLens
 {
@@ -59,8 +60,18 @@ namespace EyeLens
 
         // Code to execute when the application is launching (eg, from Start)
         // This code will not execute when the application is reactivated
-        private void Application_Launching(object sender, LaunchingEventArgs e)
+        private async void Application_Launching(object sender, LaunchingEventArgs e)
         {
+              try // try block recommended to detect compilation errors in VCD file
+              {
+                await VoiceCommandService.InstallCommandSetsFromFileAsync(
+                  new Uri("ms-appx:///VoiceCommandDefinition.xml"));
+              }
+              catch (Exception ex)
+              {
+                  Debug.WriteLine(ex.ToString());
+                // Handle exception
+              };
         }
 
         // Code to execute when the application is activated (brought to foreground)
