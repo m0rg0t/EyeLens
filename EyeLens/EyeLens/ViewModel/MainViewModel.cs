@@ -4,8 +4,6 @@ using GalaSoft.MvvmLight;
 using Nokia.Graphics.Imaging;
 using System.Collections.ObjectModel;
 
-using Nokia.Graphics.Imaging;
-using EyeLens.Resources;
 using System;
 using System.Collections.Generic;
 using System.Threading;

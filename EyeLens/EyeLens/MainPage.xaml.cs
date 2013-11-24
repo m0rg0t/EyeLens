@@ -15,6 +15,18 @@ using Windows.Phone.Speech.Synthesis;
 using System.Windows.Input;
 using EyeLens.ViewModel;
 using Nokia.Graphics.Imaging;
+using System.IO;
+
+using System.Diagnostics;
+using System.Globalization;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Threading;
+using Windows.Foundation;
+using System.Windows.Media.Imaging;
+using EyeLens.Helpers;
+
 
 namespace EyeLens
 {
@@ -77,7 +89,17 @@ namespace EyeLens
 
         void colorPickerButton_Click(object sender, EventArgs e)
         {
-            ViewModelLocator.MainStatic.GetColorUsed = true;
+            if (ViewModelLocator.MainStatic.GetColorUsed == false)
+            {
+                ViewModelLocator.MainStatic.GetColorUsed = true;
+                ViewModelLocator.MainStatic.SayText(AppResources.ColorPickingModeOn);
+            }
+            else
+            {
+                ViewModelLocator.MainStatic.GetColorUsed = true;
+                ViewModelLocator.MainStatic.SayText(AppResources.ColorPickingModeOff);
+            };
+            
             //throw new NotImplementedException();
         }
 
@@ -232,12 +254,30 @@ namespace EyeLens
         {
             if (ViewModelLocator.MainStatic.GetColorUsed == true)
             {
-                Point clickPoint = e.GetPosition(LayoutRoot);
+                System.Windows.Point clickPoint = e.GetPosition(LayoutRoot);
                 int x = Convert.ToInt32(clickPoint.X);
                 int y = Convert.ToInt32(clickPoint.Y);
                 if (_cameraSemaphore.WaitOne(100))
                 {
+                    /*var resolutionsList = PhotoCaptureDevice.GetAvailablePreviewResolutions(CameraSensorLocation.Back).ToList();
+                    Windows.Foundation.Size _frameSize = resolutionsList.Last();
+
+                    var _frameBufferSize = (int)_frameSize.Width * (int)_frameSize.Height * 4; // RGBA
+                    var _frameBuffer = new byte[_frameBufferSize];
+                    var _frameStream = new MemoryStream(_frameBuffer);
+                    var frameBuffer = _frameBuffer.AsBuffer();
+
                     //await _photoCaptureDevice.FocusAsync();
+                    var scanlineByteSize = (uint)_frameSize.Width * 4; // 4 bytes per pixel in BGRA888 mode
+                    var bitmap = new Bitmap(_frameSize, ColorMode.Bgra8888, scanlineByteSize, frameBuffer);*/
+
+                    WriteableBitmap item = new WriteableBitmap(this.LayoutRoot, this.LayoutRoot.RenderTransform);
+                    Color currentColor = item.GetPixel(x, y);
+                    //MessageBox.Show(currentColor.ToString());
+
+                    string colorName = ColorNameDictionary.GetColorName(new RGBColor() { R = currentColor.R, G = currentColor.G, B = currentColor.B });
+                    ViewModelLocator.MainStatic.SayText(colorName);
+
                     _cameraSemaphore.Release();
                 };
                 ViewModelLocator.MainStatic.GetColorUsed = false;

@@ -231,4 +231,10 @@
   <data name="ColorPickerButtonText" xml:space="preserve">
     <value>color picker</value>
   </data>
+  <data name="ColorPickingModeOff" xml:space="preserve">
+    <value>Color picking mode off</value>
+  </data>
+  <data name="ColorPickingModeOn" xml:space="preserve">
+    <value>Color picking mode on</value>
+  </data>
 </root>

@@ -247,4 +247,10 @@
   <data name="ColorPickerButtonText" xml:space="preserve">
     <value>Цвет</value>
   </data>
+  <data name="ColorPickingModeOff" xml:space="preserve">
+    <value>Режим выбора цвета отключен</value>
+  </data>
+  <data name="ColorPickingModeOn" xml:space="preserve">
+    <value>Режим выбора цвета активирован</value>
+  </data>
 </root>

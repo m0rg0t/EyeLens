@@ -142,6 +142,24 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Color picking mode off.
+        /// </summary>
+        public static string ColorPickingModeOff {
+            get {
+                return ResourceManager.GetString("ColorPickingModeOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color picking mode on.
+        /// </summary>
+        public static string ColorPickingModeOn {
+            get {
+                return ResourceManager.GetString("ColorPickingModeOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filter.
         /// </summary>
         public static string Filter {
