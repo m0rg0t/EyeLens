@@ -3,22 +3,30 @@
 <VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.0">
   <CommandSet xml:lang="en-US">
     <CommandPrefix>EyeLens</CommandPrefix>
-    <Example>next filter</Example>
+    <Example>launch</Example>
 
-    <Command Name="NextFilter">
+    <!--<Command Name="NextFilter">
       <Example> next filter </Example>
       <ListenFor> [and] next [a] filter </ListenFor>
       <ListenFor> [and] switch [a] filter </ListenFor>
       <Feedback> Switch to next filter </Feedback>
+      <Navigate />
+    </Command>-->
+    <Command Name="OpenApp">
+      <Example> start </Example>
+      <ListenFor> start </ListenFor>
+      <ListenFor> launch </ListenFor>]
+      <ListenFor> open </ListenFor>
+      <Feedback> launching app </Feedback>
       <Navigate />
     </Command>
   </CommandSet>
 
   <CommandSet xml:lang="ru-RU">
     <CommandPrefix>Линза</CommandPrefix>
-    <Example>следующий фильтр</Example>
+    <Example>запустить</Example>
 
-    <Command Name="NextFilter">
+    <!--<Command Name="NextFilter">
       <Example> следующий фильтр </Example>
       <ListenFor> следующий фильтр </ListenFor>
       <ListenFor> переключить фильтр </ListenFor>
@@ -55,7 +63,7 @@
       <ListenFor> уменьшение масштаба </ListenFor>
       <Feedback> уменьшаем </Feedback>
       <Navigate />
-    </Command>
+    </Command>-->
     
     <Command Name="OpenApp">
       <Example> запустить </Example>
