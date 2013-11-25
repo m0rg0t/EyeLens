@@ -78,7 +78,7 @@ namespace EyeLens
                 ApplicationBar.Buttons.Add(colorPickerButton);
 
                 var featureButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/feature.camera.png", UriKind.Relative));
-                featureButton.Text = AppResources.ColorPickerButtonText;
+                featureButton.Text = AppResources.SavePhotoButton;
                 featureButton.Click += featureButton_Click;
                 ApplicationBar.Buttons.Add(featureButton);
 

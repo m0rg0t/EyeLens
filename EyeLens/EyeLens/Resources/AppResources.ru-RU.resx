@@ -265,4 +265,10 @@
   <data name="ColorPickingModeOn" xml:space="preserve">
     <value>Режим выбора цвета активирован</value>
   </data>
+  <data name="DevelopersText" xml:space="preserve">
+    <value>Разработчики: Ленев Антон Сергеевич, Денис Бахвалов</value>
+  </data>
+  <data name="SavePhotoButton" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
 </root>

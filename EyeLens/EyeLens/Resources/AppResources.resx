@@ -136,7 +136,7 @@
     <value>about</value>
   </data>
   <data name="AboutPageTitle" xml:space="preserve">
-    <value>about</value>
+    <value>About</value>
   </data>
   <data name="AboutPage_ProjectRun_Text" xml:space="preserve">
     <value>For more information and application source code go to {0}.</value>
@@ -236,5 +236,11 @@
   </data>
   <data name="ColorPickingModeOn" xml:space="preserve">
     <value>Color picking mode on</value>
+  </data>
+  <data name="DevelopersText" xml:space="preserve">
+    <value>Developers: Lenev Anton Sergeevich, Denis Bahvalov</value>
+  </data>
+  <data name="SavePhotoButton" xml:space="preserve">
+    <value>Save</value>
   </data>
 </root>

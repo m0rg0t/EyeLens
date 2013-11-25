@@ -88,7 +88,7 @@ namespace EyeLens.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to about.
+        ///   Looks up a localized string similar to About.
         /// </summary>
         public static string AboutPageTitle {
             get {
@@ -156,6 +156,15 @@ namespace EyeLens.Resources {
         public static string ColorPickingModeOn {
             get {
                 return ResourceManager.GetString("ColorPickingModeOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Developers: Lenev Anton Sergeevich, Denis Bahvalov.
+        /// </summary>
+        public static string DevelopersText {
+            get {
+                return ResourceManager.GetString("DevelopersText", resourceCulture);
             }
         }
         
@@ -340,6 +349,15 @@ namespace EyeLens.Resources {
         public static string ResourceLanguage {
             get {
                 return ResourceManager.GetString("ResourceLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string SavePhotoButton {
+            get {
+                return ResourceManager.GetString("SavePhotoButton", resourceCulture);
             }
         }
         
