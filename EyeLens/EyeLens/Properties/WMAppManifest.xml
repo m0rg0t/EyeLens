@@ -12,6 +12,10 @@
       <Capability Name="ID_CAP_MEDIALIB_PHOTO" />
       <Capability Name="ID_CAP_MICROPHONE" />
       <Capability Name="ID_CAP_SPEECH_RECOGNITION" />
+      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
+      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
+      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
+      <Capability Name="ID_CAP_PROXIMITY" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
