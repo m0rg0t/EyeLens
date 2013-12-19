@@ -3,7 +3,7 @@ using EyeLens.Resources;
 using GalaSoft.MvvmLight;
 using Nokia.Graphics.Imaging;
 using System.Collections.ObjectModel;
-
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -14,6 +14,7 @@ using Windows.Storage.Streams;
 using Windows.Phone.Speech.Synthesis;
 using EyeLens.Helpers;
 using System.IO.IsolatedStorage;
+using Microsoft.Phone.Shell;
 
 namespace EyeLens.ViewModel
 {
@@ -53,6 +54,22 @@ namespace EyeLens.ViewModel
             catch {
                 InterfaceSpeech = true;
             };
+        }
+
+        public void UpdatedFirstTile(string text) {
+            try
+            {
+                ShellTile TileToFind = ShellTile.ActiveTiles.First();
+                StandardTileData NewTileData = new StandardTileData
+                {
+                    BackTitle = AppResources.Filter,
+                    //BackBackgroundImage = new Uri(textBoxBackBackgroundImage.Text, UriKind.Relative),
+                    BackContent = text
+                };
+                // Update the Application Tile
+                TileToFind.Update(NewTileData);
+            }
+            catch { };
         }
 
         /// <summary>

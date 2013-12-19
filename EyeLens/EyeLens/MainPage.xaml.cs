@@ -264,6 +264,8 @@ namespace EyeLens
                 BackgroundVideoBrush.SetSource(_mediaElement);
 
                 StatusTextBlock.Text = _cameraEffect.EffectName;
+
+                ViewModelLocator.MainStatic.UpdatedFirstTile(_cameraEffect.EffectName);
             //});
         }
 
@@ -307,9 +309,11 @@ namespace EyeLens
             _cameraEffect.NextEffect();
 
             StatusTextBlock.Text = _cameraEffect.EffectName;
+            ViewModelLocator.MainStatic.UpdatedFirstTile(StatusTextBlock.Text);
 
             await ViewModelLocator.MainStatic.SayText(AppResources.Filter + _cameraEffect.ShortFilterName);
         }
+
 
         /// <summary>
         /// switch to the previous filter
@@ -321,6 +325,7 @@ namespace EyeLens
             _cameraEffect.PreviousEffect();
 
             StatusTextBlock.Text = _cameraEffect.EffectName;
+            ViewModelLocator.MainStatic.UpdatedFirstTile(_cameraEffect.EffectName);
             await ViewModelLocator.MainStatic.SayText(AppResources.Filter + _cameraEffect.ShortFilterName);
         }
 
