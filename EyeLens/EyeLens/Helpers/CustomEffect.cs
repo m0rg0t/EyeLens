@@ -34,7 +34,8 @@ namespace EyeLens
                     uint average = (uint)(0.0722 * blue + 0.7152 * green + 0.2126 * red); // weighted average component
                     uint grayscale = 0xff000000 | average | (average << 8) | (average << 16); // use average for each color component
 
-                    targetPixels[index] = ~grayscale; // use inverse grayscale
+                    // Invert color channels only; bitwise complement would clear opaque alpha.
+                    targetPixels[index] = (pixel & 0xff000000) | (~grayscale & 0x00ffffff);
                 }
             });
         }
