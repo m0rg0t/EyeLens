@@ -10,7 +10,7 @@ From repository root, with .NET SDK 10.0.x:
 dotnet run --project tests/Portable.Tests/Portable.Tests.csproj --configuration Release
 ```
 
-No NuGet packages are restored: tests/NuGet.Config clears package sources. The SDK targets only this harness; original application project files, package references and framework targets are unchanged. C# 5 syntax is enforced. CI uses commit-pinned checkout, a read-only token, no persisted credentials and a ten-minute timeout. It uses only a preinstalled .NET 10 SDK selected by global.json; it never installs a toolchain. If that SDK is absent, the workflow fails instead of downloading one.
+No NuGet packages are restored: tests/NuGet.Config clears package sources. The SDK targets only this harness; original application project files, package references and framework targets are unchanged. C# 5 syntax is enforced. CI uses commit-pinned checkout/setup-dotnet, a read-only token, no persisted credentials and a ten-minute timeout. setup-dotnet installs only the official .NET 10 SDK for the isolated harness; it does not install legacy/native SDKs.
 
 ## What is (and is not) verified
 The project links actual production source files directly; it does not copy their logic. Minimal Nokia PixelRegion/CustomEffectBase adapters exercise the actual production OnProcess method on synthetic integer arrays. No camera, image SDK binary, XNA integration, native imaging pipeline, UI or device is tested. Source and target fixtures use matching indexing, as expected by the unchanged implementation.
